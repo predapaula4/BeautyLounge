@@ -52,6 +52,6 @@ public class TenController {
     @PostMapping(value = "/submitTen")
     public String submitTen(@ModelAttribute("ten") Ten ten) {
         System.out.println(ten.toString());
-        return null;
+        return "submitTen";
     }
 }

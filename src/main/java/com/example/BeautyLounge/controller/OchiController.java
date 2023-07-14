@@ -56,6 +56,6 @@ public class OchiController {
     @PostMapping(value = "/submitOchi")
     public String submitOchi(@ModelAttribute("ochi") Ochi ochi) {
         System.out.println(ochi.toString());
-        return null;
+        return "submitOchi";
     }
 }
