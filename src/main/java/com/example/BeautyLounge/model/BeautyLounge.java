@@ -12,6 +12,14 @@ public class BeautyLounge {
     public BeautyLounge() {
     }
 
+    public BeautyLounge(int id, String name, int quantity, String texture, int price) {
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+        this.texture = texture;
+        this.price = price;
+    }
+
     public BeautyLounge(int id, String name, int quantity, String texture, int price, String category) {
         this.id = id;
         this.name = name;
