@@ -15,7 +15,9 @@ public class Ten {
         this.texture = texture;
         this.price=price;
     }
+    public Ten(){
 
+    }
     public int getPrice() {
         return price;
     }
