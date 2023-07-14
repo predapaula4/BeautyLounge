@@ -22,7 +22,7 @@ public class TenController {
     }
     @GetMapping(value="/ten")
     public String ten(Model model) {
-        String text = "This is our products for your ten: ";
+        String text = "These are our products for your skin: ";
         model.addAttribute("message", text);
 
         Ten t1 = new Ten(1, "primer", 125, "creamy", 50);

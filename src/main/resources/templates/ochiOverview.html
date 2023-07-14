@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Overview</title>
+  <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css">
+</head>
+<body>
+
+<div class="container-fluid row col-8">
+
+  <div>
+    <h3>Eye Products Overview</h3>
+  </div>
+
+  <div class="row col-6">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Texture</th>
+      <th>Price</th>
+      </thead>
+      <tbody>
+      <tr th:each="ochi : ${ochiList}">
+        <td th:text="${ochi.id}"/>
+        <td th:text="${ochi.name}"/>
+        <td th:text="${ochi.quantity}"/>
+        <td th:text="${ochi.texture"/>
+        <td th:text="${ochi.price}"/>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+</body>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"/>
+</html>

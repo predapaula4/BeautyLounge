@@ -8,6 +8,8 @@ public class Ochi {
     //matte, glitter, cream, metallic
     private int price;
 
+    public Ochi() {}
+
     public Ochi(int id, String name, int quantity, String texture, int price) {
         this.id = id;
         this.name = name;
