@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css">
+</head>
+<body>
+
+<div class="container-fluid row col-8">
+
+    <div>
+        <h3>Ten Products Overview</h3>
+    </div>
+    <div class="row col-6">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Texture</th>
+            <th>Price</th>
+            </thead>
+            <tbody>
+            <tr th:each="products : ${ten}">
+                <td th:text="${products.id}"></td>
+                <td th:text="${products.name}"></td>
+                <td th:text="${products.quantity}"></td>
+                <td th:text="${products.texture}"></td>
+                <td th:text="${products.price}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"/>
+</html>

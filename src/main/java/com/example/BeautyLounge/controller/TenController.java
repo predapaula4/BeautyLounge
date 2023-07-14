@@ -20,8 +20,8 @@ public class TenController {
     }
     @GetMapping(value="/ten")
     public String ten(Model model) {
-        String text = "This is our products for your ten: ";
-        model.addAttribute("message", text);
+        //String text = "This is our products for your ten: ";
+       // model.addAttribute("message", text);
 
         Ten t1 = new Ten(1, "primer", 125, "creamy", 50);
         Ten t2 = new Ten(2, "foundation", 75, "mouse", 99);
