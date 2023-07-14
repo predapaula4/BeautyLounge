@@ -1,7 +1,11 @@
 package com.example.BeautyLounge.controller;
 
 import com.example.BeautyLounge.model.BeautyLounge;
+import com.example.BeautyLounge.model.Ochi;
 import com.example.BeautyLounge.model.Ten;
+import com.example.BeautyLounge.repository.OchiRepository;
+import com.example.BeautyLounge.repository.TenRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,28 +15,23 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 //template uri pentru fiecare
 public class BeautyLoungeController {
+
+    @Autowired
+    private TenRepository tenRepository;
+    private OchiRepository ochiRepository;
+
     @GetMapping(value="/beautyLoungeProducts")
-    @ResponseBody
     public String listOfProducts(Model model){
 
         String text = "These are our products for your skin: ";
         model.addAttribute("message", text);
 
-        BeautyLounge t1=new BeautyLounge(1,"primer",125,"creamy", 50, "ten");
-        BeautyLounge t2=new BeautyLounge(2, "foundation", 75, "mouse", 99, "ten");
-        BeautyLounge t3= new BeautyLounge(3, "foundation", 50, "liquid", 60, "ten");
+        List<Ten> tenList = tenRepository.findAll();
+        model.addAttribute("tenList", tenList);
+
+        List<Ochi> ochiList = ochiRepository.findAll();
+        model.addAttribute("ochiList", ochiList);
 
         return "beautyLoungeProducts";
-    }
-
-    @GetMapping(value = "/bautyLoungeForm")
-    public String getBeautyLoungeForm(Model model) {
-        model.addAttribute("beautyLounge", new BeautyLounge());
-        return "bautyLoungeForm";
-    }
-    @PostMapping(value = "/submitBeautyLounge")
-    public String submitTen(@ModelAttribute("beautyLounge") BeautyLounge beautyLounge) {
-        System.out.println(beautyLounge.toString());
-        return "submitBeautyLounge";
     }
 }

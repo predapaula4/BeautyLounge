@@ -2,6 +2,9 @@ package com.example.BeautyLounge.controller;
 
 import com.example.BeautyLounge.model.Ochi;
 import com.example.BeautyLounge.model.Ochi;
+import com.example.BeautyLounge.model.Ten;
+import com.example.BeautyLounge.repository.OchiRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,12 +16,16 @@ import java.util.List;
 
 @Controller
 public class OchiController {
+
+    @Autowired
+    private OchiRepository ochiRepository;
+
     @GetMapping(value="/ochiProducts")
     @ResponseBody
     public List<Ochi> listOfProducts(){
-        Ochi o1=new Ochi(1,"eyeshadow cream stick",100,"metallic", 35);
-        Ochi o2=new Ochi(2, "eyeliner", 80, "cream", 50);
-        Ochi o3= new Ochi(3, "eyeshadow palette", 60, "matte, glitter", 100);
+        Ochi o1=new Ochi(1,"eyeshadow cream stick", "eyes",100,"metallic", 35);
+        Ochi o2=new Ochi(2, "eyes","eyeliner", 80, "cream", 50);
+        Ochi o3= new Ochi(3, "eyeshadow palette", "eyes",60, "matte, glitter", 100);
         return List.of(o1, o2, o3);
     }
     @GetMapping(value="/ochi")
@@ -26,22 +33,16 @@ public class OchiController {
         String text = "These are our products for your eyes: ";
         model.addAttribute("message", text);
 
-        Ochi o1 = new Ochi(1, "eyeshadow cream stick", 100, "metallic", 35);
-        Ochi o2 = new Ochi(2, "eyeliner", 80, "cream", 50);
-        Ochi o3 = new Ochi(3, "eyeshadow palette", 60, "matte, glitter", 100);
-        List<Ochi> products = List.of(o1, o2, o3);
-        model.addAttribute("arrayOfProducts", products);
+        List<Ochi> ochiList = ochiRepository.findAll();
+        model.addAttribute("ochiList", ochiList);
 
         return "ochi";
     }
 
     @GetMapping(value = "/ochiOverview")
     public String getOchiOverview(Model model) {
-        Ochi o1 = new Ochi(1,"eyeshadow cream stick",100,"metallic, cream", 35);
-        Ochi o2 = new Ochi(2, "eyeliner", 80, "cream", 50);
-        Ochi o3 = new Ochi(3, "eyeshadow palette", 60, "matte, glitter", 100);
 
-        List<Ochi> ochiList = List.of(o1, o2, o3);
+        List<Ochi> ochiList = ochiRepository.findAll();
         model.addAttribute("ochiList", ochiList);
 
         return "ochiOverview";
@@ -55,7 +56,7 @@ public class OchiController {
 
     @PostMapping(value = "/submitOchi")
     public String submitOchi(@ModelAttribute("ochi") Ochi ochi) {
-        System.out.println(ochi.toString());
-        return "submitOchi";
+        ochiRepository.save(ochi);
+        return "redirect:/ochiOverview";
     }
 }

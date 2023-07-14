@@ -1,5 +1,8 @@
 package com.example.BeautyLounge.controller;
 
+import com.example.BeautyLounge.model.Ten;
+import com.example.BeautyLounge.repository.TenRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import com.example.BeautyLounge.model.Ten;
 import org.springframework.stereotype.Controller;
@@ -12,37 +15,36 @@ import java.util.List;
 
 @Controller
 public class TenController {
+
+    @Autowired
+    private TenRepository tenRepository;
+
     @GetMapping(value="/tenProducts")
     @ResponseBody
     public List<Ten> listOfProducts(){
-        Ten t1=new Ten(1,"primer",125,"creamy", 50);
-        Ten t2=new Ten(2, "foundation", 75, "mouse", 99);
-        Ten t3= new Ten(3, "foundation", 50, "liquid", 60);
+        Ten t1=new Ten(1,"primer", "face", 125,"creamy", 50);
+        Ten t2=new Ten(2, "foundation", "face", 75, "mousse", 99);
+        Ten t3= new Ten(3, "foundation", "face", 50, "liquid", 60);
         return List.of(t1, t2, t3);
     }
     @GetMapping(value="/ten")
-    public String ten(Model model) {
-        String text = "These are our products for your skin: ";
+    public String Ten(Model model) {
+        String text = "These are our products for your eyes: ";
         model.addAttribute("message", text);
 
-        Ten t1 = new Ten(1, "primer", 125, "creamy", 50);
-        Ten t2 = new Ten(2, "foundation", 75, "mouse", 99);
-        Ten t3 = new Ten(3, "foundation", 50, "liquid", 60);
-        List<Ten> products = List.of(t1, t2, t3);
-        model.addAttribute("arrayOfProducts", products);
+        List<Ten> tenList = tenRepository.findAll();
+        model.addAttribute("tenList", tenList);
 
         return "ten";
     }
-    @GetMapping(value="/tenOverview")
-    public String index(Model model) {
 
-        Ten t1 = new Ten(1, "primer", 125, "creamy", 50);
-        Ten t2 = new Ten(2, "foundation", 75, "mouse", 99);
-        Ten t3 = new Ten(3, "foundation", 50, "liquid", 60);
-        List<Ten> products = List.of(t1, t2, t3);
-        model.addAttribute("arrayOfProducts", products);
+    @GetMapping(value = "/tenOverview")
+    public String getTenOverview(Model model) {
 
-        return "ten";
+        List<Ten> tenList = tenRepository.findAll();
+        model.addAttribute("tenList", tenList);
+
+        return "tenOverview";
     }
     @GetMapping(value = "/tenForm")
     public String getTenForm(Model model) {
@@ -51,7 +53,7 @@ public class TenController {
     }
     @PostMapping(value = "/submitTen")
     public String submitTen(@ModelAttribute("ten") Ten ten) {
-        System.out.println(ten.toString());
-        return "submitTen";
+        tenRepository.save(ten);
+        return "redirect:/tenOverview";
     }
 }
