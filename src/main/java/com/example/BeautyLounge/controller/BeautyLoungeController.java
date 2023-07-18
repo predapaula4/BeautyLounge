@@ -37,4 +37,24 @@ public class BeautyLoungeController {
 
         return "beautyLoungeProducts";
     }
+    @GetMapping(value = "/beautyLoungeProductsForm")
+    public String getbeautyLoungeProductsForm(Model model) {
+        model.addAttribute("beautyLoungeProducts", new BeautyLounge());
+        return "beautyLoungeProductsForm";
+    }
+    @GetMapping(value = "/showAllProducts")
+    public String goToAllProducts(Model model) {
+
+        return  "redirect:/beautyLoungeProducts";
+    }
+    @GetMapping(value = "/tenProduct")
+    public String goToTenProducts(Model model) {
+
+        return  "redirect:/tenForm";
+    }
+    @GetMapping(value = "/ochiProduct")
+    public String goToEyeProducts(Model model) {
+
+        return  "redirect:/ochiForm";
+    }
 }

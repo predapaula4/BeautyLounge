@@ -27,7 +27,12 @@
             <div class="form-group row">
                 <label class="col-12 col-form-label" for="texture">Texture:</label>
                 <div>
-                    <input class="form-control" th:field="${ochi.texture}" type="text">
+                    <select class="form-control" th:field="${ochi.texture}" type="text">
+                        <option value="mouse">Mouse</option>
+                        <option value="liquid">Liquid</option>
+                        <option value="creamy">Creamy</option>
+                        <option value="spray">Spray</option>
+                    </select>
                 </div>
             </div>
 
