@@ -57,4 +57,8 @@ public class BeautyLoungeController {
 
         return  "redirect:/ochiForm";
     }
+    @GetMapping(value="/homeForProducts")
+    public String goHome(){
+        return "redirect:/beautyLoungeProductsForm";
+    }
 }

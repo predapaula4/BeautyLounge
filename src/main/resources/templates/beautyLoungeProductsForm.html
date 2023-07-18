@@ -5,35 +5,44 @@
     <title>Beauty Lounge Products Form</title>
     <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css">
 
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .button-container {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-
-<div class="container-fluid">
-
+<div class="container">
     <div>
         <h3>Create a Product</h3>
     </div>
-    <td>
+
+    <div class="button-container">
         <form action="/showAllProducts" method="get">
             <button type="submit">Show All Products</button>
         </form>
-    </td>
-    <td>
+    </div>
+
+    <div class="button-container">
         <form action="/tenProduct" method="get">
-            <button type="submit">Add Ten Product</button>
+            <button type="submit">Add or Edit Ten Product</button>
         </form>
-    </td>
-    <td>
+    </div>
+
+    <div class="button-container">
         <form action="/ochiProduct" method="get">
-            <button type="submit">Add Eye Products</button>
+            <button type="submit">Add or Edit Eye Products</button>
         </form>
-    </td>
-
-
+    </div>
 </div>
 
-</body>
-
 <script th:src="@{/bootstrap/js/bootstrap.min.js}"/>
-
+</body>
 </html>

@@ -21,6 +21,8 @@
       <th>Texture</th>
       <th>Quantity</th>
       <th>Price</th>
+      <th>Edit</th>
+      <th>Delete</th>
       </thead>
       <tbody>
       <tr th:each="ochi : ${ochiList}">
@@ -29,12 +31,27 @@
         <td th:text="${ochi.texture}"/>
         <td th:text="${ochi.quantity}"/>
         <td th:text="${ochi.price}"/>
+        <td>
+          <form th:action="@{/editOchi/{id}(id=${ochi.id})}" method="get">
+            <button type="submit">Edit</button>
+          </form>
+        </td>
+        <td>
+          <form th:action="@{/deleteOchi/{id}(id=${ochi.id})}" method="get">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
       </tr>
       </tbody>
     </table>
   </div>
-
 </div>
+  <div class="row col-6">
+    <form th:action="@{/homeForEye}" method="get">
+      <button type="submit">Go Home</button>
+    </form>
+  </div>
+
 
 </body>
 <script th:src="@{/bootstrap/js/bootstrap.min.js}"/>

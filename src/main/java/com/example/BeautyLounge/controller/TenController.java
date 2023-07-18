@@ -92,5 +92,9 @@ public class TenController {
         }
         return "redirect:/tenOverview";
     }
+    @GetMapping(value="/homeForTen")
+    public String goHome(){
+        return "redirect:/beautyLoungeProductsForm";
+    }
 
 }

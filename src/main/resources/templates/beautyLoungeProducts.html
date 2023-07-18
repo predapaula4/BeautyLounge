@@ -23,18 +23,32 @@
             <th>Price</th>
             </thead>
             <tbody>
-            <tr th:each="products : ${ochiList}">
-                <td th:text="${products.id}"/>
-                <td th:text="${products.name}"/>
-                <td th:text="${products.category}"/>
-                <td th:text="${products.texture}"/>
-                <td th:text="${products.quantity}"/>
-                <td th:text="${products.price}"/>
+            <tr th:each="ochi : ${ochiList}">
+                <td th:text="${ochi.id}"/>
+                <td th:text="${ochi.name}"/>
+                <td th:text="${ochi.category}"/>
+                <td th:text="${ochi.texture}"/>
+                <td th:text="${ochi.quantity}"/>
+                <td th:text="${ochi.price}"/>
             </tr>
+            <tr th:each="ten :${tenList}">
+                <td th:text="${ten.id}"/>
+                <td th:text="${ten.name}"/>
+                <td th:text="${ten.category}"/>
+                <td th:text="${ten.texture}"/>
+                <td th:text="${ten.quantity}"/>
+                <td th:text="${ten.price}"/>
+            </tr>
+
             </tbody>
         </table>
     </div>
 
+</div>
+<div class="row col-6">
+    <form th:action="@{/homeForProducts}" method="get">
+        <button type="submit">Go Home</button>
+    </form>
 </div>
 
 </body>

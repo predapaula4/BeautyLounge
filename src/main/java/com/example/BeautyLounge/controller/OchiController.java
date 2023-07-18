@@ -94,5 +94,8 @@ public class OchiController {
         }
         return "redirect:/ochiOverview";
     }
-
+    @GetMapping(value="/homeForEye")
+    public String goHome(){
+        return "redirect:/beautyLoungeProductsForm";
+    }
 }
