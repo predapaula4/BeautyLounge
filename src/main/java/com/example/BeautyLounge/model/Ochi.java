@@ -1,10 +1,9 @@
 package com.example.BeautyLounge.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name="ochi")
 public class Ochi extends BeautyLounge {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

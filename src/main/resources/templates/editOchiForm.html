@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Eye Form</title>
+  <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css">
+
+</head>
+<body>
+<h1>Edit Ochi</h1>
+
+<form th:action="@{/updateOchi/{id}(id=${ochi.id})}" method="post">
+  <input type="hidden" th:field="*{ochi.id}"/>
+  <label>Name: <input type="text" th:field="*{ochi.name}"/></label><br/>
+  <label>Quantity: <input type="number" th:field="*{ochi.quantity}"/></label><br/>
+  <label>Texture: <input type="text" th:field="*{ochi.texture}"/></label><br/>
+  <label>Price: <input type="number" th:field="*{ochi.price}"/></label><br/>
+  <input type="submit" value="Save"/>
+</form>
+
+
+</body>
+</html>

@@ -1,6 +1,12 @@
 package com.example.BeautyLounge.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="beauty_lounge")
 public class BeautyLounge {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String category;

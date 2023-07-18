@@ -3,14 +3,12 @@ package com.example.BeautyLounge.controller;
 import com.example.BeautyLounge.model.Ochi;
 import com.example.BeautyLounge.model.Ochi;
 import com.example.BeautyLounge.model.Ten;
+import com.example.BeautyLounge.repository.BeautyLoungeRepository;
 import com.example.BeautyLounge.repository.OchiRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +17,9 @@ public class OchiController {
 
     @Autowired
     private OchiRepository ochiRepository;
+    @Autowired
+    private BeautyLoungeRepository beautyLoungeRepository;
+
 
     @GetMapping(value="/ochiProducts")
     @ResponseBody
@@ -57,6 +58,41 @@ public class OchiController {
     @PostMapping(value = "/submitOchi")
     public String submitOchi(@ModelAttribute("ochi") Ochi ochi) {
         ochiRepository.save(ochi);
+        beautyLoungeRepository.save(ochi);
         return "redirect:/ochiOverview";
     }
+    @GetMapping(value = "/deleteOchi/{id}")
+    public String deleteOchi(@PathVariable("id") Integer id) {
+        Ochi ochi = ochiRepository.findById(id).orElse(null);
+        if (ochi != null) {
+            ochiRepository.delete(ochi);
+            beautyLoungeRepository.delete(ochi);
+        }
+        return "redirect:/ochiOverview";
+    }
+
+    @GetMapping(value = "/editOchi/{id}")
+    public String getEditOchiForm(@PathVariable("id") Integer id, Model model) {
+        Ochi ochi = ochiRepository.findById(id).orElse(null);
+        if (ochi != null) {
+            model.addAttribute("ochi", ochi);
+            return "editOchiForm";
+        }
+        return "redirect:/ochiOverview";
+    }
+
+    @PostMapping(value = "/updateOchi/{id}")
+    public String updateOchi(@PathVariable("id") Integer id, @ModelAttribute("ochi") Ochi updatedOchi) {
+        Ochi ochi = ochiRepository.findById(id).orElse(null);
+        if (ochi != null) {
+            ochi.setName(updatedOchi.getName());
+            ochi.setQuantity(updatedOchi.getQuantity());
+            ochi.setTexture(updatedOchi.getTexture());
+            ochi.setPrice(updatedOchi.getPrice());
+            ochiRepository.save(ochi);
+            beautyLoungeRepository.save(ochi);
+        }
+        return "redirect:/ochiOverview";
+    }
+
 }
