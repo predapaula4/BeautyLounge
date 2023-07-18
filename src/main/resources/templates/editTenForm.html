@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <title>Edit Ten Form</title>
+  <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css">
+
+</head>
+<body>
+<h1>Edit Ten</h1>
+
+<form th:action="@{/updateTen/{id}(id=${ten.id})}" method="post">
+  <input type="hidden" th:field="*{ten.id}"/>
+  <label>Name: <input type="text" th:field="*{ten.name}"/></label><br/>
+  <label>Quantity: <input type="number" th:field="*{ten.quantity}"/></label><br/>
+  <label>Texture: <input type="text" th:field="*{ten.texture}"/></label><br/>
+  <label>Price: <input type="number" th:field="*{ten.price}"/></label><br/>
+  <input type="submit" value="Save"/>
+</form>
+
+
+</body>
+</html>

@@ -1,15 +1,14 @@
 package com.example.BeautyLounge.controller;
 
+import com.example.BeautyLounge.model.Ochi;
 import com.example.BeautyLounge.model.Ten;
+import com.example.BeautyLounge.repository.BeautyLoungeRepository;
 import com.example.BeautyLounge.repository.TenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import com.example.BeautyLounge.model.Ten;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,6 +17,9 @@ public class TenController {
 
     @Autowired
     private TenRepository tenRepository;
+    @Autowired
+    private BeautyLoungeRepository beautyLoungeRepository;
+
 
     @GetMapping(value="/tenProducts")
     @ResponseBody
@@ -54,6 +56,41 @@ public class TenController {
     @PostMapping(value = "/submitTen")
     public String submitTen(@ModelAttribute("ten") Ten ten) {
         tenRepository.save(ten);
+        beautyLoungeRepository.save(ten);
         return "redirect:/tenOverview";
     }
+    @GetMapping(value = "/deleteTen/{id}")
+    public String deleteTen(@PathVariable("id") Integer id) {
+        Ten ten = tenRepository.findById(id).orElse(null);
+        if (ten != null) {
+            tenRepository.delete(ten);
+            beautyLoungeRepository.delete(ten);
+        }
+        return "redirect:/tenOverview";
+    }
+
+    @GetMapping(value = "/editTen/{id}")
+    public String getEditTenForm(@PathVariable("id") Integer id, Model model) {
+        Ten ten = tenRepository.findById(id).orElse(null);
+        if (ten != null) {
+            model.addAttribute("ten", ten);
+            return "editTenForm";
+        }
+        return "redirect:/tenOverview";
+    }
+
+    @PostMapping(value = "/updateTen/{id}")
+    public String updateTen(@PathVariable("id") Integer id, @ModelAttribute("ten") Ten updateTen) {
+        Ten ten = tenRepository.findById(id).orElse(null);
+        if (ten != null) {
+            ten.setName(updateTen.getName());
+            ten.setQuantity(updateTen.getQuantity());
+            ten.setTexture(updateTen.getTexture());
+            ten.setPrice(updateTen.getPrice());
+            tenRepository.save(ten);
+            beautyLoungeRepository.save(ten);
+        }
+        return "redirect:/tenOverview";
+    }
+
 }

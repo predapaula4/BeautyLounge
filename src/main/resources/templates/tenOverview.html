@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Ten </title>
     <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css">
 </head>
 <body>
@@ -20,14 +20,27 @@
             <th>Texture</th>
             <th>Quantity</th>
             <th>Price</th>
+            <th>Edit</th>
+            <th>Delete</th>
             </thead>
             <tbody>
-            <tr th:each="products : ${ten}">
+            <tr th:each="products : ${tenList}">
                 <td th:text="${products.id}"></td>
                 <td th:text="${products.name}"></td>
                 <td th:text="${products.texture}"></td>
                 <td th:text="${products.quantity}"></td>
                 <td th:text="${products.price}"></td>
+                <td>
+                    <form th:action="@{/editTen/{id}(id=${products.id})}" method="get">
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{/deleteTen/{id}(id=${products.id})}" method="get">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+
             </tr>
             </tbody>
         </table>
