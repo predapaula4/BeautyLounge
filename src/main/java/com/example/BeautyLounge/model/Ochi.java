@@ -1,10 +1,9 @@
 package com.example.BeautyLounge.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "ochi")
 public class Ochi extends BeautyLounge {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,11 +15,11 @@ public class Ochi extends BeautyLounge {
     @Column(name = "category")
     private String category;
 
-    @Column(name = "quantity")
-    private int quantity;
-
     @Column(name = "texture")
     private String texture;
+
+    @Column(name = "quantity")
+    private int quantity;
 
     @Column(name = "price")
     private int price;
@@ -28,7 +27,7 @@ public class Ochi extends BeautyLounge {
     public Ochi() {
     }
 
-    public Ochi(int id, String name, String category, int quantity, String texture, int price) {
+    public Ochi(int id, String name, String category, String texture, int quantity, int price) {
         super();
     }
 }

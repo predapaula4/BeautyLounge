@@ -23,9 +23,9 @@ public class OchiController {
     @GetMapping(value="/ochiProducts")
     @ResponseBody
     public List<Ochi> listOfProducts(){
-        Ochi o1=new Ochi(1,"eyeshadow cream stick", "eyes",100,"metallic", 35);
-        Ochi o2=new Ochi(2, "eyes","eyeliner", 80, "cream", 50);
-        Ochi o3= new Ochi(3, "eyeshadow palette", "eyes",60, "matte, glitter", 100);
+        Ochi o1=new Ochi(1,"eyeshadow cream stick", "eyes", "metallic", 100, 35);
+        Ochi o2=new Ochi(2, "eyes","eyeliner", "cream", 80, 50);
+        Ochi o3= new Ochi(3, "eyeshadow palette", "eyes", "matte, glitter", 60, 100);
         return List.of(o1, o2, o3);
     }
     @GetMapping(value="/ochi")

@@ -17,16 +17,16 @@
             <thead>
             <th>Id</th>
             <th>Name</th>
-            <th>Quantity</th>
             <th>Texture</th>
+            <th>Quantity</th>
             <th>Price</th>
             </thead>
             <tbody>
             <tr th:each="products : ${ten}">
                 <td th:text="${products.id}"></td>
                 <td th:text="${products.name}"></td>
-                <td th:text="${products.quantity}"></td>
                 <td th:text="${products.texture}"></td>
+                <td th:text="${products.quantity}"></td>
                 <td th:text="${products.price}"></td>
             </tr>
             </tbody>

@@ -8,53 +8,33 @@
 <body>
 
 <div class="container-fluid row col-8">
-
     <div>
         <h3>Beauty Lounge</h3>
     </div>
+
     <div class="row col-6">
         <table class="table table-bordered table-striped">
             <thead>
             <th>Id</th>
             <th>Name</th>
-            <th>Quantity</th>
+            <th>Category</th>
             <th>Texture</th>
+            <th>Quantity</th>
             <th>Price</th>
             </thead>
             <tbody>
-            <tr th:each="products : ${ten}">
-                <td th:text="${products.id}"></td>
-                <td th:text="${products.name}"></td>
-                <td th:text="${products.quantity}"></td>
-                <td th:text="${products.texture}"></td>
-                <td th:text="${products.price}"></td>
+            <tr th:each="products : ${ochiList}">
+                <td th:text="${products.id}"/>
+                <td th:text="${products.name}"/>
+                <td th:text="${products.category}"/>
+                <td th:text="${products.texture}"/>
+                <td th:text="${products.quantity}"/>
+                <td th:text="${products.price}"/>
             </tr>
             </tbody>
         </table>
     </div>
-</div>
 
-</div>
-
-<div class="row col-6">
-    <table class="table table-bordered table-striped">
-        <thead>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Quantity</th>
-        <th>Texture</th>
-        <th>Price</th>
-        </thead>
-        <tbody>
-        <tr th:each="products : ${ochiList}">
-            <td th:text="${products.id}"/>
-            <td th:text="${products.name}"/>
-            <td th:text="${products.quantity}"/>
-            <td th:text="${products.texture"/>
-            <td th:text="${products.price}"/>
-        </tr>
-        </tbody>
-    </table>
 </div>
 
 </body>
