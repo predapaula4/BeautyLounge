@@ -58,7 +58,6 @@ public class OchiController {
     @PostMapping(value = "/submitOchi")
     public String submitOchi(@ModelAttribute("ochi") Ochi ochi) {
         ochiRepository.save(ochi);
-        beautyLoungeRepository.save(ochi);
         return "redirect:/ochiOverview";
     }
     @GetMapping(value = "/deleteOchi/{id}")
@@ -66,7 +65,7 @@ public class OchiController {
         Ochi ochi = ochiRepository.findById(id).orElse(null);
         if (ochi != null) {
             ochiRepository.delete(ochi);
-            beautyLoungeRepository.delete(ochi);
+
         }
         return "redirect:/ochiOverview";
     }
@@ -90,7 +89,7 @@ public class OchiController {
             ochi.setTexture(updatedOchi.getTexture());
             ochi.setPrice(updatedOchi.getPrice());
             ochiRepository.save(ochi);
-            beautyLoungeRepository.save(ochi);
+
         }
         return "redirect:/ochiOverview";
     }

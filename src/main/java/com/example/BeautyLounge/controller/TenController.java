@@ -24,9 +24,9 @@ public class TenController {
     @GetMapping(value="/tenProducts")
     @ResponseBody
     public List<Ten> listOfProducts(){
-        Ten t1=new Ten(1,"primer", "face", 125,"creamy", 50);
-        Ten t2=new Ten(2, "foundation", "face", 75, "mousse", 99);
-        Ten t3= new Ten(3, "foundation", "face", 50, "liquid", 60);
+        Ten t1=new Ten(1,"primer", "face", "creamy",125, 50);
+        Ten t2=new Ten(2, "foundation", "face", "mousse", 75, 99);
+        Ten t3= new Ten(3, "foundation", "face","liquid", 50,  60);
         return List.of(t1, t2, t3);
     }
     @GetMapping(value="/ten")
@@ -56,7 +56,6 @@ public class TenController {
     @PostMapping(value = "/submitTen")
     public String submitTen(@ModelAttribute("ten") Ten ten) {
         tenRepository.save(ten);
-        beautyLoungeRepository.save(ten);
         return "redirect:/tenOverview";
     }
     @GetMapping(value = "/deleteTen/{id}")
@@ -64,7 +63,6 @@ public class TenController {
         Ten ten = tenRepository.findById(id).orElse(null);
         if (ten != null) {
             tenRepository.delete(ten);
-            beautyLoungeRepository.delete(ten);
         }
         return "redirect:/tenOverview";
     }
@@ -88,7 +86,6 @@ public class TenController {
             ten.setTexture(updateTen.getTexture());
             ten.setPrice(updateTen.getPrice());
             tenRepository.save(ten);
-            beautyLoungeRepository.save(ten);
         }
         return "redirect:/tenOverview";
     }
