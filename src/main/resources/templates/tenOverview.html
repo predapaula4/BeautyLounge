@@ -15,7 +15,6 @@
     <div class="row col-6">
         <table class="table table-bordered table-striped">
             <thead>
-            <th>Id</th>
             <th>Name</th>
             <th>Texture</th>
             <th>Quantity</th>
@@ -25,7 +24,6 @@
             </thead>
             <tbody>
             <tr th:each="products : ${tenList}">
-                <td th:text="${products.id}"></td>
                 <td th:text="${products.name}"></td>
                 <td th:text="${products.texture}"></td>
                 <td th:text="${products.quantity}"></td>

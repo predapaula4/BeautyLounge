@@ -17,7 +17,6 @@
     <div class="row col-6">
         <table class="table table-bordered table-striped">
             <thead>
-            <th>Id</th>
             <th>Name</th>
             <th>Category</th>
             <th>Texture</th>
@@ -26,7 +25,6 @@
             </thead>
             <tbody>
             <tr th:each="ochi : ${ochiList}">
-                <td th:text="${ochi.id}"/>
                 <td th:text="${ochi.name}"/>
                 <td th:text="${ochi.category}"/>
                 <td th:text="${ochi.texture}"/>
@@ -43,7 +41,6 @@
     <div class="row col-6">
         <table class="table table-bordered table-striped">
             <thead>
-            <th>Id</th>
             <th>Name</th>
             <th>Category</th>
             <th>Texture</th>
@@ -52,7 +49,6 @@
             </thead>
             <tbody>
             <tr th:each="ten :${tenList}">
-                <td th:text="${ten.id}"/>
                 <td th:text="${ten.name}"/>
                 <td th:text="${ten.category}"/>
                 <td th:text="${ten.texture}"/>
