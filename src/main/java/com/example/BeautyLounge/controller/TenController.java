@@ -1,9 +1,13 @@
 package com.example.BeautyLounge.controller;
 
+import com.example.BeautyLounge.dto.TenFormDto;
+import com.example.BeautyLounge.dto.TenOverviewDto;
+import com.example.BeautyLounge.mapper.TenMapper;
 import com.example.BeautyLounge.model.Ochi;
 import com.example.BeautyLounge.model.Ten;
 import com.example.BeautyLounge.repository.BeautyLoungeRepository;
 import com.example.BeautyLounge.repository.TenRepository;
+import com.example.BeautyLounge.service.TenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import com.example.BeautyLounge.model.Ten;
@@ -16,34 +20,34 @@ import java.util.List;
 public class TenController {
 
     @Autowired
-    private TenRepository tenRepository;
+    private TenService tenService;
     @Autowired
-    private BeautyLoungeRepository beautyLoungeRepository;
+    private TenMapper tenMapper;
 
 
-    @GetMapping(value="/tenProducts")
-    @ResponseBody
-    public List<Ten> listOfProducts(){
-        Ten t1=new Ten(1,"primer", "face", "creamy",125, 50);
-        Ten t2=new Ten(2, "foundation", "face", "mousse", 75, 99);
-        Ten t3= new Ten(3, "foundation", "face","liquid", 50,  60);
-        return List.of(t1, t2, t3);
-    }
-    @GetMapping(value="/ten")
-    public String Ten(Model model) {
-        String text = "These are our products for your eyes: ";
-        model.addAttribute("message", text);
+//    @GetMapping(value="/tenProducts")
+//    @ResponseBody
+//    public List<Ten> listOfProducts(){
+//        Ten t1=new Ten(1,"primer", "face", "creamy",125, 50);
+//        Ten t2=new Ten(2, "foundation", "face", "mousse", 75, 99);
+//        Ten t3= new Ten(3, "foundation", "face","liquid", 50,  60);
+//        return List.of(t1, t2, t3);
+//    }
+@GetMapping("/ten")
+public String getTen(Model model) {
+    String text = "These are our products for your eyes: ";
+    model.addAttribute("message", text);
 
-        List<Ten> tenList = tenRepository.findAll();
-        model.addAttribute("tenList", tenList);
+    List<TenOverviewDto> tenList = tenService.getAllTen();
+    model.addAttribute("tenList", tenList);
 
-        return "ten";
-    }
+    return "ten";
+}
 
     @GetMapping(value = "/tenOverview")
     public String getTenOverview(Model model) {
 
-        List<Ten> tenList = tenRepository.findAll();
+        List<TenOverviewDto> tenList = tenService.getAllTen();
         model.addAttribute("tenList", tenList);
 
         return "tenOverview";
@@ -53,23 +57,21 @@ public class TenController {
         model.addAttribute("ten", new Ten());
         return "tenForm";
     }
-    @PostMapping(value = "/submitTen")
-    public String submitTen(@ModelAttribute("ten") Ten ten) {
-        tenRepository.save(ten);
+    @PostMapping("/submitTen")
+    public String submitTen(@ModelAttribute("ten") TenFormDto ten, Model model) {
+        Ten tenEntity = tenMapper.mapToTenEntity(ten);
+        tenService.saveTen(tenEntity);
         return "redirect:/tenOverview";
     }
     @GetMapping(value = "/deleteTen/{id}")
     public String deleteTen(@PathVariable("id") Integer id) {
-        Ten ten = tenRepository.findById(id).orElse(null);
-        if (ten != null) {
-            tenRepository.delete(ten);
-        }
+        tenService.deleteTen(id);
         return "redirect:/tenOverview";
     }
 
     @GetMapping(value = "/editTen/{id}")
     public String getEditTenForm(@PathVariable("id") Integer id, Model model) {
-        Ten ten = tenRepository.findById(id).orElse(null);
+        Ten ten = tenService.getTenById(id);
         if (ten != null) {
             model.addAttribute("ten", ten);
             return "editTenForm";
@@ -77,18 +79,20 @@ public class TenController {
         return "redirect:/tenOverview";
     }
 
-    @PostMapping(value = "/updateTen/{id}")
-    public String updateTen(@PathVariable("id") Integer id, @ModelAttribute("ten") Ten updateTen) {
-        Ten ten = tenRepository.findById(id).orElse(null);
-        if (ten != null) {
-            ten.setName(updateTen.getName());
-            ten.setQuantity(updateTen.getQuantity());
-            ten.setTexture(updateTen.getTexture());
-            ten.setPrice(updateTen.getPrice());
-            tenRepository.save(ten);
+    @PostMapping("/updateTen/{id}")
+    public String updateTen(@PathVariable("id") Integer id, @ModelAttribute("tenFormDto") TenFormDto updateTen) {
+        Ten existingTen = tenService.getTenById(id);
+        if (existingTen != null) {
+            Ten updatedTen = tenMapper.mapToTen(updateTen);
+            existingTen.setName(updatedTen.getName());
+            existingTen.setQuantity(updatedTen.getQuantity());
+            existingTen.setTexture(updatedTen.getTexture());
+            existingTen.setPrice(updatedTen.getPrice());
+            tenService.saveTen(existingTen);
         }
         return "redirect:/tenOverview";
     }
+
     @GetMapping(value="/homeForTen")
     public String goHome(){
         return "redirect:/beautyLoungeProductsForm";
