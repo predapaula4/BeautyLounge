@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container mt-5">
-  <h1>Edit Ten</h1>
+  <h1>Edit ten products</h1>
 
   <form th:action="@{/updateTen/{id}(id=${ten.id})}" method="post">
     <input type="hidden" th:field="*{ten.id}"/>

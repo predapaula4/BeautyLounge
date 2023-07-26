@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Beauty Lounge</title>
@@ -12,10 +12,9 @@
         <h3>Beauty Lounge</h3>
     </div>
 
-
-<div>
-    <h1>Eye Products</h1>
-</div>
+    <div>
+        <h1>Eye Products</h1>
+    </div>
     <div class="row col-6">
         <table class="table table-bordered table-striped">
             <thead>
@@ -24,6 +23,8 @@
             <th>Texture</th>
             <th>Quantity</th>
             <th>Price</th>
+            <th>Edit</th>
+            <th>Delete</th>
             </thead>
             <tbody>
             <tr th:each="ochi : ${ochiList}">
@@ -32,6 +33,16 @@
                 <td th:text="${ochi.texture}"/>
                 <td th:text="${ochi.quantity}"/>
                 <td th:text="${ochi.price}"/>
+                <td>
+                    <form th:action="@{/editOchi/{id}(id=${ochi.id})}" method="get">
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{/deleteOchi/{id}(id=${ochi.id})}" method="get">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
             </tbody>
         </table>
@@ -48,14 +59,26 @@
             <th>Texture</th>
             <th>Quantity</th>
             <th>Price</th>
+            <th>Edit</th>
+            <th>Delete</th>
             </thead>
             <tbody>
-            <tr th:each="ten :${tenList}">
+            <tr th:each="ten : ${tenList}">
                 <td th:text="${ten.name}"/>
                 <td th:text="${ten.category}"/>
                 <td th:text="${ten.texture}"/>
                 <td th:text="${ten.quantity}"/>
                 <td th:text="${ten.price}"/>
+                <td>
+                    <form th:action="@{/editTen/{id}(id=${ten.id})}" method="get">
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{/deleteTen/{id}(id=${ten.id})}" method="get">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
             </tbody>
         </table>
@@ -69,18 +92,29 @@
         <table class="table table-bordered table-striped">
             <thead>
             <th>Name</th>
-            <th>Category</th>
             <th>Texture</th>
             <th>Quantity</th>
             <th>Price</th>
+            <th>Edit</th>
+            <th>Delete</th>
             </thead>
             <tbody>
-            <tr th:each="lips :${lipsList}">
-                <td th:text="${lips.name}"/>
-                <td th:text="${lips.category}"/>
-                <td th:text="${lips.texture}"/>
-                <td th:text="${lips.quantity}"/>
-                <td th:text="${lips.price}"/>
+            <tr th:each="lips : ${lipsList}">
+                <td th:text="${lips.name}"></td>
+                <td th:text="${lips.texture}"></td>
+                <td th:text="${lips.quantity}"></td>
+                <td th:text="${lips.price}"></td>
+                <td>
+                    <form th:action="@{/editLips/{id}(id=${lips.id})}" method="get">
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{/deleteLips/{id}(id=${lips.id})}" method="get">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+
             </tr>
             </tbody>
         </table>

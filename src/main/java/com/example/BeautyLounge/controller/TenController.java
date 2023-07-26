@@ -25,16 +25,16 @@ public class TenController {
     private TenMapper tenMapper;
 
 
-@GetMapping("/ten")
-public String getTen(Model model) {
-    String text = "These are our products for your eyes: ";
-    model.addAttribute("message", text);
-
-    List<TenOverviewDto> tenList = tenService.getAllTen();
-    model.addAttribute("tenList", tenList);
-
-    return "ten";
-}
+//@GetMapping("/ten")
+//public String getTen(Model model) {
+//    String text = "These are our products for your eyes: ";
+//    model.addAttribute("message", text);
+//
+//    List<TenOverviewDto> tenList = tenService.getAllTen();
+//    model.addAttribute("tenList", tenList);
+//
+//    return "ten";
+//}
 
     @GetMapping(value = "/tenOverview")
     public String getTenOverview(Model model) {

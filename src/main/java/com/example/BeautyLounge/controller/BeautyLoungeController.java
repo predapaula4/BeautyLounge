@@ -60,6 +60,18 @@ public class BeautyLoungeController {
 
         return  "redirect:/lipsForm";
     }
+
+    @GetMapping(value = "/eyebrowProduct")
+    public String goToEyebrowProducts(Model model) {
+
+        return  "redirect:/eyebrowProduct";
+    }
+
+    @GetMapping(value = "/lashProduct")
+    public String goToLashProducts(Model model) {
+
+        return  "redirect:/lashProduct";
+    }
     @GetMapping(value="/homeForProducts")
     public String goHome(){
         return "redirect:/beautyLoungeProductsForm";

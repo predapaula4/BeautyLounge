@@ -21,24 +21,24 @@ public class OchiController {
     private BeautyLoungeRepository beautyLoungeRepository;
 
 
-    @GetMapping(value="/ochiProducts")
-    @ResponseBody
-    public List<Ochi> listOfProducts(){
-        Ochi o1=new Ochi(1,"eyeshadow cream stick", "eyes", "metallic", 100, 35);
-        Ochi o2=new Ochi(2, "eyes","eyeliner", "cream", 80, 50);
-        Ochi o3= new Ochi(3, "eyeshadow palette", "eyes", "matte, glitter", 60, 100);
-        return List.of(o1, o2, o3);
-    }
-    @GetMapping(value="/ochi")
-    public String Ochi(Model model) {
-        String text = "These are our products for your eyes: ";
-        model.addAttribute("message", text);
-
-        List<Ochi> ochiList = ochiRepository.findAll();
-        model.addAttribute("ochiList", ochiList);
-
-        return "ochi";
-    }
+//    @GetMapping(value="/ochiProducts")
+//    @ResponseBody
+//    public List<Ochi> listOfProducts(){
+//        Ochi o1=new Ochi(1,"eyeshadow cream stick", "eyes", "metallic", 100, 35);
+//        Ochi o2=new Ochi(2, "eyes","eyeliner", "cream", 80, 50);
+//        Ochi o3= new Ochi(3, "eyeshadow palette", "eyes", "matte, glitter", 60, 100);
+//        return List.of(o1, o2, o3);
+//    }
+//    @GetMapping(value="/ochi")
+//    public String Ochi(Model model) {
+//        String text = "These are our products for your eyes: ";
+//        model.addAttribute("message", text);
+//
+//        List<Ochi> ochiList = ochiRepository.findAll();
+//        model.addAttribute("ochiList", ochiList);
+//
+//        return "ochi";
+//    }
 
     @GetMapping(value = "/ochiOverview")
     public String getOchiOverview(Model model) {
