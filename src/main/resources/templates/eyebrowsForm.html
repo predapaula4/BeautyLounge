@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ten Form</title>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+      <html lang="en">
+      <head>
+      <meta charset="UTF-8">
+      <title>Ten Form</title>
   <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css">
 
 </head>
@@ -11,15 +15,15 @@
 <div class="container-fluid">
 
   <div>
-    <h3>Create a lips product</h3>
+    <h3>Create a eyebrows product</h3>
   </div>
 
-  <form action="#" method="post" th:action="@{/submitLips}" th:object="${lips}">
+  <form action="#" method="post" th:action="@{/submitEyebrows}" th:object="${eyebrows}">
     <div class="row col-lg-12">
       <div class="form-group row">
         <label class="col-12 col-form-label" for="name">Name:</label>
         <div>
-          <input class="form-control" th:field="${lips.name}" type="text">
+          <input class="form-control" th:field="${eyebrows.name}" type="text">
         </div>
       </div>
 
@@ -27,10 +31,11 @@
       <div class="form-group row">
         <label class="col-12 col-form-label" for="texture">Texture:</label>
         <div>
-          <select class="form-control" th:field="${lips.texture}" type="text">
-            <option value="mousse">Mousse</option>
+          <select class="form-control" th:field="${eyebrows.texture}" type="text">
+            <option value="mouse">Mouse</option>
             <option value="liquid">Liquid</option>
             <option value="creamy">Creamy</option>
+            <option value="spray">Spray</option>
             <option value="powder">Powder</option>
           </select>
         </div>
@@ -39,14 +44,14 @@
       <div class="form-group row">
         <label class="col-12 col-form-label" for="quantity">Quantity:</label>
         <div>
-          <input class="form-control" th:field="${lips.quantity}" type="text">
+          <input class="form-control" th:field="${eyebrows.quantity}" type="text">
         </div>
       </div>
 
       <div class="form-group row">
         <label class="col-12 col-form-label" for="price">Price:</label>
         <div>
-          <input class="form-control" th:field="${lips.price}" type="text">
+          <input class="form-control" th:field="${eyebrows.price}" type="text">
         </div>
       </div>
 
@@ -66,4 +71,9 @@
 
 <script th:src="@{/bootstrap/js/bootstrap.min.js}"/>
 
+</html></title>
+</head>
+<body>
+
+</body>
 </html>

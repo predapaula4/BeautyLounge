@@ -2,12 +2,8 @@ package com.example.BeautyLounge.mapper;
 
 import com.example.BeautyLounge.dto.LipsFormDto;
 import com.example.BeautyLounge.dto.LipsOverviewDto;
-import com.example.BeautyLounge.dto.TenFormDto;
-import com.example.BeautyLounge.dto.TenOverviewDto;
 import com.example.BeautyLounge.model.Lips;
-import com.example.BeautyLounge.model.Ten;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

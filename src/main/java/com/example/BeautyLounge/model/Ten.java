@@ -15,6 +15,10 @@ public class Ten  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @ManyToOne
+    @JoinColumn(name = "id_brand")
+    private Brand brand;
+
     @Column(name = "name")
     private String name;
 
@@ -29,6 +33,5 @@ public class Ten  {
 
     @Column(name = "price")
     private int price;
-
 
 }

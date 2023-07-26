@@ -88,11 +88,5 @@ public class LipsController {
     }
 
     @GetMapping(value="/homeForLips")
-    public String goHome(){
-        return "redirect:/beautyLoungeProductsForm";
-    }
-
-
-
-
+    public String goHome() {return "redirect:/beautyLoungeProductsForm";}
 }

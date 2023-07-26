@@ -4,13 +4,13 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "ochi")
+@Table(name = "eyebrows")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Getter
 @Setter
-public class Ochi  {
+public class Eyebrows {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -25,13 +25,12 @@ public class Ochi  {
     @Column(name = "category")
     private String category;
 
-    @Column(name = "texture")
-    private String texture;
-
     @Column(name = "quantity")
     private int quantity;
 
+    @Column(name = "texture")
+    private String texture;
+
     @Column(name = "price")
     private int price;
-
 }
