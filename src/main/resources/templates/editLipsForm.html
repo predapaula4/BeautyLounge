@@ -2,26 +2,26 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
-  <title>Edit Eye Form</title>
+  <title>Edit Lips Form</title>
   <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css">
 </head>
 <body>
 <div class="container mt-5">
-  <h1>Edit Eye</h1>
+  <h1>Edit Lips</h1>
 
-  <form th:action="@{/updateOchi/{id}(id=${ochi.id})}" method="post">
-    <input type="hidden" th:field="*{ochi.id}"/>
+  <form th:action="@{/updateLips/{id}(id=${lips.id})}" method="post">
+    <input type="hidden" th:field="*{lips.id}"/>
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" class="form-control" th:field="*{ochi.name}"/>
+      <input type="text" class="form-control" th:field="*{lips.name}"/>
     </div>
     <div class="form-group">
       <label for="quantity">Quantity:</label>
-      <input type="number" class="form-control" th:field="*{ochi.quantity}"/>
+      <input type="number" class="form-control" th:field="*{lips.quantity}"/>
     </div>
     <div class="form-group">
       <label for="texture">Texture:</label>
-      <select type="text" class="form-control" th:field="*{ochi.texture}"/>
+      <select type="text" class="form-control" th:field="*{lips.texture}"/>
       <option value="mouse">Mouse</option>
       <option value="liquid">Liquid</option>
       <option value="creamy">Creamy</option>
@@ -31,9 +31,10 @@
     </div>
     <div class="form-group">
       <label for="price">Price:</label>
-      <input type="number" class="form-control" th:field="*{ochi.price}"/>
+      <input type="number" class="form-control" th:field="*{lips.price}"/>
     </div>
     <input type="submit" class="btn btn-primary" value="Save"/>
+
   </form>
 </div>
 </body>

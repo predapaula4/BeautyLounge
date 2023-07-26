@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ten </title>
+  <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css">
+</head>
+<body>
+
+<div class="container-fluid row col-8">
+
+  <div>
+    <h3>Lips Products Overview</h3>
+  </div>
+  <div class="row col-6">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <th>Name</th>
+      <th>Texture</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Edit</th>
+      <th>Delete</th>
+      </thead>
+      <tbody>
+      <tr th:each="lips : ${lipsList}">
+        <td th:text="${lips.name}"></td>
+        <td th:text="${lips.texture}"></td>
+        <td th:text="${lips.quantity}"></td>
+        <td th:text="${lips.price}"></td>
+        <td>
+          <form th:action="@{/editLips/{id}(id=${lips.id})}" method="get">
+            <button type="submit">Edit</button>
+          </form>
+        </td>
+        <td>
+          <form th:action="@{/deleteLips/{id}(id=${lips.id})}" method="get">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row col-6">
+  <form th:action="@{/homeForLips}" method="get">
+    <button type="submit">Go Home</button>
+  </form>
+</div>
+</body>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"/>
+</html>

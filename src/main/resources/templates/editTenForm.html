@@ -1,33 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <title>Edit Ten Form</title>
   <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css">
-
-  <style>
-    body{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-  </style>
 </head>
 <body>
-<h1>Edit Ten</h1>
+<div class="container mt-5">
+  <h1>Edit Ten</h1>
 
-<form th:action="@{/updateTen/{id}(id=${ten.id})}" method="post">
-  <input type="hidden" th:field="*{ten.id}"/>
-  <label>Name: <input type="text" th:field="*{ten.name}"/></label><br/>
-  <label>Quantity: <input type="number" th:field="*{ten.quantity}"/></label><br/>
-  <label>Texture: <input type="text" th:field="*{ten.texture}"/></label><br/>
-  <label>Price: <input type="number" th:field="*{ten.price}"/></label><br/>
-  <input type="submit" value="Save"/>
-</form>
-
-
+  <form th:action="@{/updateTen/{id}(id=${ten.id})}" method="post">
+    <input type="hidden" th:field="*{ten.id}"/>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" th:field="*{ten.name}"/>
+    </div>
+    <div class="form-group">
+      <label for="quantity">Quantity:</label>
+      <input type="number" class="form-control" th:field="*{ten.quantity}"/>
+    </div>
+    <div class="form-group">
+      <label for="texture">Texture:</label>
+      <select type="text" class="form-control" th:field="*{ten.texture}"/>
+        <option value="mouse">Mouse</option>
+        <option value="liquid">Liquid</option>
+        <option value="creamy">Creamy</option>
+       <option value="spray">Spray</option>
+       <option value="powder">Powder</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="price">Price:</label>
+      <input type="number" class="form-control" th:field="*{ten.price}"/>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Save"/>
+  </form>
+</div>
 </body>
 </html>

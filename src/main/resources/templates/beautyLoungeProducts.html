@@ -11,6 +11,8 @@
     <div>
         <h3>Beauty Lounge</h3>
     </div>
+
+
 <div>
     <h1>Eye Products</h1>
 </div>
@@ -54,6 +56,31 @@
                 <td th:text="${ten.texture}"/>
                 <td th:text="${ten.quantity}"/>
                 <td th:text="${ten.price}"/>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div>
+        <h1>Lips Products</h1>
+    </div>
+    <div class="row col-6">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Texture</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            </thead>
+            <tbody>
+            <tr th:each="lips :${lipsList}">
+                <td th:text="${lips.name}"/>
+                <td th:text="${lips.category}"/>
+                <td th:text="${lips.texture}"/>
+                <td th:text="${lips.quantity}"/>
+                <td th:text="${lips.price}"/>
             </tr>
             </tbody>
         </table>

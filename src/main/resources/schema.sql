@@ -19,3 +19,14 @@ create table ochi
     price integer,
     primary key (id)
 );
+
+create table lips
+(
+    id integer auto_increment,
+    name varchar(50),
+    category varchar(50),
+    texture varchar(50),
+    quantity integer,
+    price integer,
+    primary key (id)
+);

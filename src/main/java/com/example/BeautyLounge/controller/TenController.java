@@ -25,14 +25,6 @@ public class TenController {
     private TenMapper tenMapper;
 
 
-//    @GetMapping(value="/tenProducts")
-//    @ResponseBody
-//    public List<Ten> listOfProducts(){
-//        Ten t1=new Ten(1,"primer", "face", "creamy",125, 50);
-//        Ten t2=new Ten(2, "foundation", "face", "mousse", 75, 99);
-//        Ten t3= new Ten(3, "foundation", "face","liquid", 50,  60);
-//        return List.of(t1, t2, t3);
-//    }
 @GetMapping("/ten")
 public String getTen(Model model) {
     String text = "These are our products for your eyes: ";
