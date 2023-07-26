@@ -15,7 +15,7 @@ values ('eyeshadow palette', 'eyes', 'matte, glitter',60,  100);
 
 insert into lips(name, category, texture, quantity, price)
 values ('lip gloss', 'lips', 'metallic, cream',100,  35);
-insert into ochi(name, category, texture, quantity, price)
+insert into lips(name, category, texture, quantity, price)
 values ('pencil', 'lips', 'creamy',80,  50);
-insert into ochi(name, category, texture, quantity, price)
+insert into lips(name, category, texture, quantity, price)
 values ('lip balm', 'lips', 'creamy',60,  100);

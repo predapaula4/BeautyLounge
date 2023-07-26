@@ -84,7 +84,7 @@ public class LipsController {
             existingLips.setPrice(updatedLips.getPrice());
             lipsService.saveLips(existingLips);
         }
-        return "redirect:/tenOverview";
+        return "redirect:/lipsOverview";
     }
 
     @GetMapping(value="/homeForLips")

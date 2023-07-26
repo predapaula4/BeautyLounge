@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Edit Lips Form</title>
@@ -21,12 +21,12 @@
     </div>
     <div class="form-group">
       <label for="texture">Texture:</label>
-      <select type="text" class="form-control" th:field="*{lips.texture}"/>
-      <option value="mouse">Mouse</option>
-      <option value="liquid">Liquid</option>
-      <option value="creamy">Creamy</option>
-      <option value="spray">Spray</option>
-      <option value="powder">Powder</option>
+      <select class="form-control" th:field="*{lips.texture}">
+        <option value="mouse">Mouse</option>
+        <option value="liquid">Liquid</option>
+        <option value="creamy">Creamy</option>
+        <option value="spray">Spray</option>
+        <option value="powder">Powder</option>
       </select>
     </div>
     <div class="form-group">
@@ -34,7 +34,6 @@
       <input type="number" class="form-control" th:field="*{lips.price}"/>
     </div>
     <input type="submit" class="btn btn-primary" value="Save"/>
-
   </form>
 </div>
 </body>
