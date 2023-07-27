@@ -9,19 +9,19 @@
 <div class="container mt-5">
   <h1>Edit eye products</h1>
 
-  <form th:action="@{/updateOchi/{id}(id=${ochi.id})}" method="post">
-    <input type="hidden" th:field="*{ochi.id}"/>
+  <form th:action="@{/updateEye/{id}(id=${eye.id})}" method="post">
+    <input type="hidden" th:field="*{eye.id}"/>
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" class="form-control" th:field="*{ochi.name}"/>
+      <input type="text" class="form-control" th:field="*{eye.name}"/>
     </div>
     <div class="form-group">
       <label for="quantity">Quantity:</label>
-      <input type="number" class="form-control" th:field="*{ochi.quantity}"/>
+      <input type="number" class="form-control" th:field="*{eye.quantity}"/>
     </div>
     <div class="form-group">
       <label for="texture">Texture:</label>
-      <select type="text" class="form-control" th:field="*{ochi.texture}"/>
+      <select type="text" class="form-control" th:field="*{eye.texture}"/>
       <option value="mousse">Mousse</option>
       <option value="liquid">Liquid</option>
       <option value="creamy">Creamy</option>
@@ -30,7 +30,7 @@
     </div>
     <div class="form-group">
       <label for="price">Price:</label>
-      <input type="number" class="form-control" th:field="*{ochi.price}"/>
+      <input type="number" class="form-control" th:field="*{eye.price}"/>
     </div>
     <input type="submit" class="btn btn-primary" value="Save"/>
   </form>

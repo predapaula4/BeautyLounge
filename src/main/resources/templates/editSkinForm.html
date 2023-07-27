@@ -2,26 +2,26 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
-  <title>Edit Ten Form</title>
+  <title>Edit skin Form</title>
   <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css">
 </head>
 <body>
 <div class="container mt-5">
-  <h1>Edit ten products</h1>
+  <h1>Edit skin products</h1>
 
-  <form th:action="@{/updateTen/{id}(id=${ten.id})}" method="post">
-    <input type="hidden" th:field="*{ten.id}"/>
+  <form th:action="@{/updateSkin/{id}(id=${skin.id})}" method="post">
+    <input type="hidden" th:field="*{skin.id}"/>
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" class="form-control" th:field="*{ten.name}"/>
+      <input type="text" class="form-control" th:field="*{skin.name}"/>
     </div>
     <div class="form-group">
       <label for="quantity">Quantity:</label>
-      <input type="number" class="form-control" th:field="*{ten.quantity}"/>
+      <input type="number" class="form-control" th:field="*{skin.quantity}"/>
     </div>
     <div class="form-group">
       <label for="texture">Texture:</label>
-      <select type="text" class="form-control" th:field="*{ten.texture}"/>
+      <select type="text" class="form-control" th:field="*{skin.texture}"/>
         <option value="mousse">Mousse</option>
         <option value="liquid">Liquid</option>
         <option value="creamy">Creamy</option>
@@ -31,7 +31,7 @@
     </div>
     <div class="form-group">
       <label for="price">Price:</label>
-      <input type="number" class="form-control" th:field="*{ten.price}"/>
+      <input type="number" class="form-control" th:field="*{skin.price}"/>
     </div>
     <input type="submit" class="btn btn-primary" value="Save"/>
   </form>

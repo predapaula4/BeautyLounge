@@ -1,10 +1,10 @@
 package com.example.BeautyLounge.controller;
 
-import com.example.BeautyLounge.model.BeautyLounge;
-import com.example.BeautyLounge.model.Ochi;
-import com.example.BeautyLounge.model.Ten;
-import com.example.BeautyLounge.repository.OchiRepository;
-import com.example.BeautyLounge.repository.TenRepository;
+import com.example.BeautyLounge.model.*;
+import com.example.BeautyLounge.repository.EyebrowsRepository;
+import com.example.BeautyLounge.repository.LipsRepository;
+import com.example.BeautyLounge.repository.EyeRepository;
+import com.example.BeautyLounge.repository.SkinRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,9 +17,15 @@ import java.util.List;
 public class BeautyLoungeController {
 
     @Autowired
-    private TenRepository tenRepository;
+    private SkinRepository skinRepository;
     @Autowired
-    private OchiRepository ochiRepository;
+    private EyeRepository eyeRepository;
+
+    @Autowired
+    private LipsRepository lipsRepository;
+
+    @Autowired
+    private EyebrowsRepository eyebrowsRepository;
 
     @GetMapping(value="/beautyLoungeProducts")
     public String listOfProducts(Model model){
@@ -27,11 +33,17 @@ public class BeautyLoungeController {
         String text = "These are our products for your skin: ";
         model.addAttribute("message", text);
 
-        List<Ten> tenList = tenRepository.findAll();
-        model.addAttribute("tenList", tenList);
+        List<Skin> skinList = skinRepository.findAll();
+        model.addAttribute("skinList", skinList);
 
-        List<Ochi> ochiList = ochiRepository.findAll();
-        model.addAttribute("ochiList", ochiList);
+        List<Eye> eyeList = eyeRepository.findAll();
+        model.addAttribute("eyeList", eyeList);
+
+        List<Lips> lipsList=lipsRepository.findAll();
+        model.addAttribute("lipsList", lipsList);
+
+        List<Eyebrows> eyebrowsList=eyebrowsRepository.findAll();
+        model.addAttribute("eyebrowsList", eyebrowsList);
 
         return "beautyLoungeProducts";
     }
@@ -45,15 +57,15 @@ public class BeautyLoungeController {
 
         return  "redirect:/beautyLoungeProducts";
     }
-    @GetMapping(value = "/tenProduct")
-    public String goToTenProducts(Model model) {
+    @GetMapping(value = "/skinProduct")
+    public String goToSkinProducts(Model model) {
 
-        return  "redirect:/tenForm";
+        return  "redirect:/skinForm";
     }
-    @GetMapping(value = "/ochiProduct")
+    @GetMapping(value = "/eyeProduct")
     public String goToEyeProducts(Model model) {
 
-        return  "redirect:/ochiForm";
+        return  "redirect:/eyeForm";
     }
     @GetMapping(value = "/lipsProduct")
     public String goToLipsProducts(Model model) {
@@ -64,14 +76,9 @@ public class BeautyLoungeController {
     @GetMapping(value = "/eyebrowProduct")
     public String goToEyebrowProducts(Model model) {
 
-        return  "redirect:/eyebrowProduct";
+        return  "redirect:/eyebrowsForm";
     }
 
-    @GetMapping(value = "/lashProduct")
-    public String goToLashProducts(Model model) {
-
-        return  "redirect:/lashProduct";
-    }
     @GetMapping(value="/homeForProducts")
     public String goHome(){
         return "redirect:/beautyLoungeProductsForm";

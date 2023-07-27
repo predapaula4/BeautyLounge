@@ -1,10 +1,8 @@
 package com.example.BeautyLounge.service;
 
 import com.example.BeautyLounge.dto.EyebrowsOverviewDto;
-import com.example.BeautyLounge.dto.TenOverviewDto;
 import com.example.BeautyLounge.mapper.EyebrowsMapper;
 import com.example.BeautyLounge.model.Eyebrows;
-import com.example.BeautyLounge.model.Ten;
 import com.example.BeautyLounge.repository.EyebrowsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

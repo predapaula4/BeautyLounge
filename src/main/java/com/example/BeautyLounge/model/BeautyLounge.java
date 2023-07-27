@@ -6,7 +6,6 @@ import lombok.*;
 @Entity
 @Table(name="beauty_lounge")
 @NoArgsConstructor
-@AllArgsConstructor
 @Builder
 @Getter
 @Setter

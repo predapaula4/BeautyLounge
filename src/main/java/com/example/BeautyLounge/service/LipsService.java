@@ -1,10 +1,8 @@
 package com.example.BeautyLounge.service;
 
 import com.example.BeautyLounge.dto.LipsOverviewDto;
-import com.example.BeautyLounge.dto.TenOverviewDto;
 import com.example.BeautyLounge.mapper.LipsMapper;
 import com.example.BeautyLounge.model.Lips;
-import com.example.BeautyLounge.model.Ten;
 import com.example.BeautyLounge.repository.LipsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

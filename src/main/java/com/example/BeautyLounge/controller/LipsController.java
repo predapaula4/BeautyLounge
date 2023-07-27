@@ -2,13 +2,10 @@ package com.example.BeautyLounge.controller;
 
 import com.example.BeautyLounge.dto.LipsFormDto;
 import com.example.BeautyLounge.dto.LipsOverviewDto;
-import com.example.BeautyLounge.dto.TenFormDto;
 import com.example.BeautyLounge.mapper.LipsMapper;
 import com.example.BeautyLounge.model.Lips;
-import com.example.BeautyLounge.model.Ten;
 import com.example.BeautyLounge.service.LipsService;
 import org.springframework.ui.Model;
-import com.example.BeautyLounge.mapper.TenMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

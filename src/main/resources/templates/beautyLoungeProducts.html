@@ -27,19 +27,19 @@
             <th>Delete</th>
             </thead>
             <tbody>
-            <tr th:each="ochi : ${ochiList}">
-                <td th:text="${ochi.name}"/>
-                <td th:text="${ochi.category}"/>
-                <td th:text="${ochi.texture}"/>
-                <td th:text="${ochi.quantity}"/>
-                <td th:text="${ochi.price}"/>
+            <tr th:each="eye : ${eyeList}">
+                <td th:text="${eye.name}"/>
+                <td th:text="${eye.category}"/>
+                <td th:text="${eye.texture}"/>
+                <td th:text="${eye.quantity}"/>
+                <td th:text="${eye.price}"/>
                 <td>
-                    <form th:action="@{/editOchi/{id}(id=${ochi.id})}" method="get">
+                    <form th:action="@{/editEye/{id}(id=${eye.id})}" method="get">
                         <button type="submit">Edit</button>
                     </form>
                 </td>
                 <td>
-                    <form th:action="@{/deleteOchi/{id}(id=${ochi.id})}" method="get">
+                    <form th:action="@{/deleteEye/{id}(id=${eye.id})}" method="get">
                         <button type="submit">Delete</button>
                     </form>
                 </td>
@@ -63,19 +63,19 @@
             <th>Delete</th>
             </thead>
             <tbody>
-            <tr th:each="ten : ${tenList}">
-                <td th:text="${ten.name}"/>
-                <td th:text="${ten.category}"/>
-                <td th:text="${ten.texture}"/>
-                <td th:text="${ten.quantity}"/>
-                <td th:text="${ten.price}"/>
+            <tr th:each="skin : ${skinList}">
+                <td th:text="${skin.name}"/>
+                <td th:text="${skin.category}"/>
+                <td th:text="${skin.texture}"/>
+                <td th:text="${skin.quantity}"/>
+                <td th:text="${skin.price}"/>
                 <td>
-                    <form th:action="@{/editTen/{id}(id=${ten.id})}" method="get">
+                    <form th:action="@{/editSkin/{id}(id=${skin.id})}" method="get">
                         <button type="submit">Edit</button>
                     </form>
                 </td>
                 <td>
-                    <form th:action="@{/deleteTen/{id}(id=${ten.id})}" method="get">
+                    <form th:action="@{/deleteSkin/{id}(id=${skin.id})}" method="get">
                         <button type="submit">Delete</button>
                     </form>
                 </td>
@@ -119,6 +119,45 @@
             </tbody>
         </table>
     </div>
+
+
+
+    <div>
+        <h1>Eyebrow Products</h1>
+    </div>
+    <div class="row col-6">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <th>Name</th>
+            <th>Texture</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            </thead>
+            <tbody>
+            <tr th:each="eyebrows : ${eyebrowsList}">
+                <td th:text="${eyebrows.name}"></td>
+                <td th:text="${eyebrows.texture}"></td>
+                <td th:text="${eyebrows.quantity}"></td>
+                <td th:text="${eyebrows.price}"></td>
+                <td>
+                    <form th:action="@{/editEyebrows/{id}(id=${eyebrows.id})}" method="get">
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{/deleteEyebrows/{id}(id=${eyebrows.id})}" method="get">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
 
 </div>
 <div class="row col-6">

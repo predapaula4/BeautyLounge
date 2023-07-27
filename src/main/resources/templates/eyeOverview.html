@@ -24,18 +24,18 @@
       <th>Delete</th>
       </thead>
       <tbody>
-      <tr th:each="ochi : ${ochiList}">
-        <td th:text="${ochi.name}"/>
-        <td th:text="${ochi.texture}"/>
-        <td th:text="${ochi.quantity}"/>
-        <td th:text="${ochi.price}"/>
+      <tr th:each="eye : ${eyeList}">
+        <td th:text="${eye.name}"/>
+        <td th:text="${eye.texture}"/>
+        <td th:text="${eye.quantity}"/>
+        <td th:text="${eye.price}"/>
         <td>
-          <form th:action="@{/editOchi/{id}(id=${ochi.id})}" method="get">
+          <form th:action="@{/editEye/{id}(id=${eye.id})}" method="get">
             <button type="submit">Edit</button>
           </form>
         </td>
         <td>
-          <form th:action="@{/deleteOchi/{id}(id=${ochi.id})}" method="get">
+          <form th:action="@{/deleteEye/{id}(id=${eye.id})}" method="get">
             <button type="submit">Delete</button>
           </form>
         </td>

@@ -1,4 +1,5 @@
 package com.example.BeautyLounge.dto;
+
 import lombok.*;
 
 @NoArgsConstructor
@@ -6,7 +7,7 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @Builder
-public class TenOverviewDto {
+public class SkinFormDto {
 
     private int id;
     private String name;

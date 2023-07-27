@@ -1,12 +1,12 @@
-create table brand
-(
+-- Create the brand table
+create table brand (
     id_brand integer auto_increment,
     brand_name varchar(50),
     primary key (id_brand)
-)
+);
 
-create table ten
-(
+-- Create the skin table
+create table skin (
     id integer auto_increment,
     id_brand integer,
     name varchar(50),
@@ -17,7 +17,7 @@ create table ten
     primary key (id)
 );
 
-create table ochi
+create table eye
 (
     id integer auto_increment,
     id_brand integer,
@@ -50,5 +50,13 @@ create table eyebrows
     texture varchar(50),
     quantity integer,
     price integer,
+    primary key (id)
+);
+
+create table beauty_lounge (
+    id integer auto_increment,
+    name varchar(255),
+    hq_address varchar(255),
+    year_of_establishment integer not null,
     primary key (id)
 );

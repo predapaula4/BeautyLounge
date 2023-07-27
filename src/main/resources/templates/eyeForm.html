@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ochi Form</title>
+    <title>Eye Form</title>
     <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css">
 
 </head>
@@ -14,20 +14,20 @@
         <h3>Create a new eye product</h3>
     </div>
 
-    <form action="#" method="post" th:action="@{/submitOchi}" th:object="${ochi}">
+    <form action="#" method="post" th:action="@{/submitEye}" th:object="${eye}">
 
         <div class="row col-lg-12">
             <div class="form-group row">
                 <label class="col-12 col-form-label" for="name">Name:</label>
                 <div>
-                    <input class="form-control" th:field="${ochi.name}" type="text">
+                    <input class="form-control" th:field="${eye.name}" type="text">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-12 col-form-label" for="texture">Texture:</label>
                 <div>
-                    <select class="form-control" th:field="${ochi.texture}" type="text">
+                    <select class="form-control" th:field="${eye.texture}" type="text">
                         <option value="mousse">Mousse</option>
                         <option value="liquid">Liquid</option>
                         <option value="creamy">Creamy</option>
@@ -39,14 +39,14 @@
             <div class="form-group row">
                 <label class="col-12 col-form-label" for="quantity">Quantity:</label>
                 <div>
-                    <input class="form-control" th:field="${ochi.quantity}" type="text">
+                    <input class="form-control" th:field="${eye.quantity}" type="text">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-12 col-form-label" for="price">Price:</label>
                 <div>
-                    <input class="form-control" th:field="${ochi.price}" type="text">
+                    <input class="form-control" th:field="${eye.price}" type="text">
                 </div>
             </div>
 

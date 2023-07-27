@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @Builder
-public class OchiOverviewDto {
+public class EyeOverviewDto {
     private int id;
     private String name;
     private String category;
