@@ -37,5 +37,8 @@ values ('brow mascara', 123, 'eyebrow', 'liquid', 80, 50);
 insert into eyebrows(name, brand_id, category, texture, quantity, price)
 values ('eyebrow gel', 124, 'eyebrow', 'creamy', 60, 100);
 
+insert into beauty_lounge(name, hq_address, year_of_establishment)
+values('Beauty Lounge', '25 Market Street First Market Tower 32nd Floor, San Francisco, California, United States', 1990);
+
 
 
