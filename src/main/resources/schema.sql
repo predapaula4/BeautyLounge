@@ -1,6 +1,6 @@
 -- Create the brand table
 create table brand (
-    brand_id integer auto_increment,
+    brand_id integer,
     brand_name varchar(50),
     primary key (brand_id)
 );

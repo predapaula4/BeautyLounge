@@ -34,7 +34,6 @@ public class Eye {
     @Column(name = "price")
     private int price;
 
-
     public int getBrandCode() {
         return brand.getBrandCode();
     }

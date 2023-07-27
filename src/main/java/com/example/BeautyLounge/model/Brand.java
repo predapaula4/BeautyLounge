@@ -14,7 +14,7 @@ import java.util.List;
 @Setter
 public class Brand {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "brand_id")
     private int brand_id;
 
     @Column(name = "brand_name")
