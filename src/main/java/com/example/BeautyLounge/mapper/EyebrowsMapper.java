@@ -31,7 +31,7 @@ public class EyebrowsMapper {
     {
         Eyebrows eyebrows = Eyebrows.builder()
                 .id(eyebrowsFormDto.getId())
-                .brand(Brand.builder().brand_id(eyebrowsFormDto.getBrand_id()).build())
+                .brand(Brand.builder().id(eyebrowsFormDto.getBrand_id()).build())
                 .name(eyebrowsFormDto.getName())
                 .quantity(eyebrowsFormDto.getQuantity())
                 .texture(eyebrowsFormDto.getTexture())
@@ -44,7 +44,7 @@ public class EyebrowsMapper {
     public Eyebrows mapToEyebrowsEntity(EyebrowsFormDto eyebrowsFormDto) {
         return Eyebrows.builder()
                 .name(eyebrowsFormDto.getName())
-                .brand(Brand.builder().brand_id(eyebrowsFormDto.getBrand_id()).build())
+                .brand(Brand.builder().id(eyebrowsFormDto.getBrand_id()).build())
                 .category(eyebrowsFormDto.getCategory())
                 .quantity(eyebrowsFormDto.getQuantity())
                 .texture(eyebrowsFormDto.getTexture())

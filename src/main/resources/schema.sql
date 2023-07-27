@@ -1,8 +1,8 @@
 -- Create the brand table
 create table brand (
-    brand_id integer,
+    id integer,
     brand_name varchar(50),
-    primary key (brand_id)
+    primary key (id)
 );
 
 -- Create the skin table
@@ -15,7 +15,7 @@ create table skin (
     quantity integer,
     price integer,
     primary key (id),
-    foreign key (brand_id) references brand (brand_id)
+    foreign key (brand_id) references brand (id)
 );
 
 -- Create the eye table
@@ -29,7 +29,7 @@ create table eye
     quantity integer,
     price integer,
     primary key (id),
-    foreign key (brand_id) references brand (brand_id)
+    foreign key (brand_id) references brand (id)
 );
 
 -- Create the lips table
@@ -43,7 +43,7 @@ create table lips
     quantity integer,
     price integer,
     primary key (id),
-    foreign key (brand_id) references brand (brand_id)
+    foreign key (brand_id) references brand (id)
 );
 
 -- Create the eyebrows table
@@ -57,7 +57,7 @@ create table eyebrows
     quantity integer,
     price integer,
     primary key (id),
-    foreign key (brand_id) references brand (brand_id)
+    foreign key (brand_id) references brand (id)
 );
 
 -- Create the Beauty Lounge table

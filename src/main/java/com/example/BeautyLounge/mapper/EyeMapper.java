@@ -32,7 +32,7 @@ public class EyeMapper {
     {
         Eye eye = Eye.builder()
                 .id(eyeFormDto.getId())
-                .brand(Brand.builder().brand_id(eyeFormDto.getBrand_id()).build())
+                .brand(Brand.builder().id(eyeFormDto.getBrand_id()).build())
                 .name(eyeFormDto.getName())
                 .quantity(eyeFormDto.getQuantity())
                 .texture(eyeFormDto.getTexture())
@@ -45,7 +45,7 @@ public class EyeMapper {
     public Eye mapToEyeEntity(EyeFormDto eyeFormDto) {
         return Eye.builder()
                 .name(eyeFormDto.getName())
-                .brand(Brand.builder().brand_id(eyeFormDto.getBrand_id()).build())
+                .brand(Brand.builder().id(eyeFormDto.getBrand_id()).build())
                 .category(eyeFormDto.getCategory())
                 .quantity(eyeFormDto.getQuantity())
                 .texture(eyeFormDto.getTexture())

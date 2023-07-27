@@ -1,12 +1,12 @@
-insert into brand(brand_id, brand_name)
+insert into brand(id, brand_name)
 values (123, 'Maybelline');
-insert into brand(brand_id, brand_name)
+insert into brand(id, brand_name)
 values (124, 'Essence');
-insert into brand(brand_id, brand_name)
+insert into brand(id, brand_name)
 values (125, 'Revlon');
-insert into brand(brand_id, brand_name)
+insert into brand(id, brand_name)
 values (126, 'NYX');
-insert into brand(brand_id, brand_name)
+insert into brand(id, brand_name)
 values (127, 'Makeup Revolution');
 
 insert into skin(name, brand_id, category, texture, quantity, price)

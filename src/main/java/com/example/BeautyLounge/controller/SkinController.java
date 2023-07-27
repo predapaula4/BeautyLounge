@@ -31,7 +31,7 @@ public class SkinController {
     }
     @GetMapping(value = "/skinForm")
     public String getSkinForm(Model model) {
-        model.addAttribute("skin", new Skin());
+        model.addAttribute("skin", new SkinFormDto());
         return "skinForm";
     }
     @PostMapping("/submitSkin")

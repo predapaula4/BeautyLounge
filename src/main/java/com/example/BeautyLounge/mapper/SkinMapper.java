@@ -32,7 +32,7 @@ public class SkinMapper {
     {
         Skin skin = Skin.builder()
                 .id(skinFormDto.getId())
-                .brand(Brand.builder().brand_id(skinFormDto.getBrand_id()).build())
+                .brand(Brand.builder().id(skinFormDto.getBrandId()).build())
                 .name(skinFormDto.getName())
                 .quantity(skinFormDto.getQuantity())
                 .texture(skinFormDto.getTexture())
@@ -45,7 +45,7 @@ public class SkinMapper {
     public Skin mapToSkinEntity(SkinFormDto skinFormDto) {
         return Skin.builder()
                 .name(skinFormDto.getName())
-                .brand(Brand.builder().brand_id(skinFormDto.getBrand_id()).build())
+                .brand(Brand.builder().id(skinFormDto.getBrandId()).build())
                 .category(skinFormDto.getCategory())
                 .quantity(skinFormDto.getQuantity())
                 .texture(skinFormDto.getTexture())

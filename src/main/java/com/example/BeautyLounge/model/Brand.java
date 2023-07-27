@@ -14,8 +14,8 @@ import java.util.List;
 @Setter
 public class Brand {
     @Id
-    @Column(name = "brand_id")
-    private int brand_id;
+    @Column(name = "id")
+    private int id;
 
     @Column(name = "brand_name")
     private String brand_name;
@@ -37,7 +37,7 @@ public class Brand {
     }
 
     public int getBrandCode() {
-        return brand_id;
+        return id;
     }
 
 }
