@@ -3,8 +3,10 @@ package com.example.BeautyLounge.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
-@Table(name="brand")
+@Table(name = "brand")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -13,9 +15,29 @@ import lombok.*;
 public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_brand;
+    private int brand_id;
 
     @Column(name = "brand_name")
     private String brand_name;
+
+    @OneToMany(mappedBy = "brand")
+    private List<Eyebrows> eyebrowsList;
+
+    @OneToMany(mappedBy = "brand")
+    private List<Lips> lipsList;
+
+    @OneToMany(mappedBy = "brand")
+    private List<Eye> eyeList;
+
+    @OneToMany(mappedBy = "brand")
+    private List<Skin> skinList;
+
+    public String getBrandName() {
+        return brand_name;
+    }
+
+    public int getBrandCode() {
+        return brand_id;
+    }
 
 }

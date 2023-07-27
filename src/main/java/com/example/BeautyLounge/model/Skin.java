@@ -16,7 +16,7 @@ public class Skin {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id_brand")
+    @JoinColumn(name = "brand_id")
     private Brand brand;
 
     @Column(name = "name")
@@ -34,4 +34,19 @@ public class Skin {
     @Column(name = "price")
     private int price;
 
+    public int getBrandCode() {
+        return brand.getBrandCode();
+    }
+
+    public String getBrandName() {
+        return brand.getBrandName();
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
 }

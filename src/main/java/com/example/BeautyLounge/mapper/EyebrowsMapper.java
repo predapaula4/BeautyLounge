@@ -2,6 +2,7 @@ package com.example.BeautyLounge.mapper;
 
 import com.example.BeautyLounge.dto.EyebrowsFormDto;
 import com.example.BeautyLounge.dto.EyebrowsOverviewDto;
+import com.example.BeautyLounge.model.Brand;
 import com.example.BeautyLounge.model.Eyebrows;
 import org.springframework.stereotype.Component;
 import java.util.List;
@@ -17,6 +18,8 @@ public class EyebrowsMapper {
     private EyebrowsOverviewDto mapToEyebrowsDto(Eyebrows eyebrows) {
         return EyebrowsOverviewDto.builder()
                 .id(eyebrows.getId())
+                .brand_id(eyebrows.getBrandCode())
+                .brand_name(eyebrows.getBrandName())
                 .name(eyebrows.getName())
                 .quantity(eyebrows.getQuantity())
                 .texture(eyebrows.getTexture())
@@ -26,8 +29,9 @@ public class EyebrowsMapper {
     }
     public Eyebrows mapToEyebrows(EyebrowsFormDto eyebrowsFormDto)
     {
-        Eyebrows eyebrows=Eyebrows.builder()
+        Eyebrows eyebrows = Eyebrows.builder()
                 .id(eyebrowsFormDto.getId())
+                .brand(Brand.builder().brand_id(eyebrowsFormDto.getBrand_id()).build())
                 .name(eyebrowsFormDto.getName())
                 .quantity(eyebrowsFormDto.getQuantity())
                 .texture(eyebrowsFormDto.getTexture())
@@ -40,6 +44,7 @@ public class EyebrowsMapper {
     public Eyebrows mapToEyebrowsEntity(EyebrowsFormDto eyebrowsFormDto) {
         return Eyebrows.builder()
                 .name(eyebrowsFormDto.getName())
+                .brand(Brand.builder().brand_id(eyebrowsFormDto.getBrand_id()).build())
                 .category(eyebrowsFormDto.getCategory())
                 .quantity(eyebrowsFormDto.getQuantity())
                 .texture(eyebrowsFormDto.getTexture())

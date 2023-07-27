@@ -16,6 +16,8 @@
         <table class="table table-bordered table-striped">
             <thead>
             <th>Name</th>
+            <th>Brand ID</th>
+            <th>Brand Name</th>
             <th>Texture</th>
             <th>Quantity</th>
             <th>Price</th>
@@ -23,18 +25,20 @@
             <th>Delete</th>
             </thead>
             <tbody>
-            <tr th:each="products : ${skinList}">
-                <td th:text="${products.name}"></td>
-                <td th:text="${products.texture}"></td>
-                <td th:text="${products.quantity}"></td>
-                <td th:text="${products.price}"></td>
+            <tr th:each="skin : ${skinList}">
+                <td th:text="${skin.name}"></td>
+                <td th:text="${skin.brand_id}"></td>
+                <td th:text="${skin.brand_name}"></td>
+                <td th:text="${skin.texture}"></td>
+                <td th:text="${skin.quantity}"></td>
+                <td th:text="${skin.price}"></td>
                 <td>
-                    <form th:action="@{/editSkin/{id}(id=${products.id})}" method="get">
+                    <form th:action="@{/editSkin/{id}(id=${skin.id})}" method="get">
                         <button type="submit">Edit</button>
                     </form>
                 </td>
                 <td>
-                    <form th:action="@{/deleteSkin/{id}(id=${products.id})}" method="get">
+                    <form th:action="@{/deleteSkin/{id}(id=${skin.id})}" method="get">
                         <button type="submit">Delete</button>
                     </form>
                 </td>

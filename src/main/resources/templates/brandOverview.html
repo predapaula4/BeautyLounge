@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Brand Overview</title>
+  <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css">
+</head>
+<body>
+
+<div class="container-fluid row col-8">
+
+  <div>
+    <h3>Brand Overview</h3>
+  </div>
+
+  <div class="row col-6">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <th>Id</th>
+      <th>Name</th>
+      </thead>
+      <tbody>
+      <tr th:each="brand : ${brandList}">
+        <td th:text="${brand.id_brand}"/>
+        <td th:text="${brand.brand_name}"/>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+</body>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"/>
+</html>

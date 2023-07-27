@@ -9,6 +9,8 @@ import lombok.*;
 @Builder
 public class EyeOverviewDto {
     private int id;
+    private int brand_id;
+    private String brand_name;
     private String name;
     private String category;
     private int quantity;

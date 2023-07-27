@@ -2,6 +2,7 @@ package com.example.BeautyLounge.mapper;
 
 import com.example.BeautyLounge.dto.LipsFormDto;
 import com.example.BeautyLounge.dto.LipsOverviewDto;
+import com.example.BeautyLounge.model.Brand;
 import com.example.BeautyLounge.model.Lips;
 import org.springframework.stereotype.Component;
 import java.util.List;
@@ -17,6 +18,8 @@ public class LipsMapper {
     private LipsOverviewDto mapToLipsDto(Lips lips) {
         return LipsOverviewDto.builder()
                 .id(lips.getId())
+                .brand_id(lips.getBrandCode())
+                .brand_name(lips.getBrandName())
                 .name(lips.getName())
                 .quantity(lips.getQuantity())
                 .texture(lips.getTexture())
@@ -28,6 +31,7 @@ public class LipsMapper {
     {
         Lips lips=Lips.builder()
                 .id(lipsFormDto.getId())
+                .brand(Brand.builder().brand_id(lipsFormDto.getBrand_id()).build())
                 .name(lipsFormDto.getName())
                 .quantity(lipsFormDto.getQuantity())
                 .texture(lipsFormDto.getTexture())
@@ -40,6 +44,7 @@ public class LipsMapper {
     public Lips mapToLipsEntity(LipsFormDto lipsFormDto) {
         return Lips.builder()
                 .name(lipsFormDto.getName())
+                .brand(Brand.builder().brand_id(lipsFormDto.getBrand_id()).build())
                 .category(lipsFormDto.getCategory())
                 .quantity(lipsFormDto.getQuantity())
                 .texture(lipsFormDto.getTexture())

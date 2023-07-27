@@ -2,6 +2,7 @@ package com.example.BeautyLounge.mapper;
 
 import com.example.BeautyLounge.dto.EyeFormDto;
 import com.example.BeautyLounge.dto.EyeOverviewDto;
+import com.example.BeautyLounge.model.Brand;
 import com.example.BeautyLounge.model.Eye;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +19,8 @@ public class EyeMapper {
     private EyeOverviewDto mapToEyeDto(Eye eye) {
         return EyeOverviewDto.builder()
                 .id(eye.getId())
+                .brand_id(eye.getBrandCode())
+                .brand_name(eye.getBrandName())
                 .name(eye.getName())
                 .quantity(eye.getQuantity())
                 .texture(eye.getTexture())
@@ -29,6 +32,7 @@ public class EyeMapper {
     {
         Eye eye = Eye.builder()
                 .id(eyeFormDto.getId())
+                .brand(Brand.builder().brand_id(eyeFormDto.getBrand_id()).build())
                 .name(eyeFormDto.getName())
                 .quantity(eyeFormDto.getQuantity())
                 .texture(eyeFormDto.getTexture())
@@ -41,6 +45,7 @@ public class EyeMapper {
     public Eye mapToEyeEntity(EyeFormDto eyeFormDto) {
         return Eye.builder()
                 .name(eyeFormDto.getName())
+                .brand(Brand.builder().brand_id(eyeFormDto.getBrand_id()).build())
                 .category(eyeFormDto.getCategory())
                 .quantity(eyeFormDto.getQuantity())
                 .texture(eyeFormDto.getTexture())

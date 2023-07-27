@@ -19,7 +19,8 @@
         <table class="table table-bordered table-striped">
             <thead>
             <th>Name</th>
-            <th>Category</th>
+            <th>Brand ID</th>
+            <th>Brand Name</th>
             <th>Texture</th>
             <th>Quantity</th>
             <th>Price</th>
@@ -29,7 +30,8 @@
             <tbody>
             <tr th:each="eye : ${eyeList}">
                 <td th:text="${eye.name}"/>
-                <td th:text="${eye.category}"/>
+                <td th:text="${eye.getBrandCode()}"></td>
+                <td th:text="${eye.getBrandName()}"></td>
                 <td th:text="${eye.texture}"/>
                 <td th:text="${eye.quantity}"/>
                 <td th:text="${eye.price}"/>
@@ -49,13 +51,14 @@
     </div>
 
     <div>
-        <h1>Ten Products</h1>
+        <h1>Skin Products</h1>
     </div>
     <div class="row col-6">
         <table class="table table-bordered table-striped">
             <thead>
             <th>Name</th>
-            <th>Category</th>
+            <th>Brand ID</th>
+            <th>Brand Name</th>
             <th>Texture</th>
             <th>Quantity</th>
             <th>Price</th>
@@ -64,11 +67,12 @@
             </thead>
             <tbody>
             <tr th:each="skin : ${skinList}">
-                <td th:text="${skin.name}"/>
-                <td th:text="${skin.category}"/>
-                <td th:text="${skin.texture}"/>
-                <td th:text="${skin.quantity}"/>
-                <td th:text="${skin.price}"/>
+                <td th:text="${skin.name}"></td>
+                <td th:text="${skin.getBrandCode()}"></td>
+                <td th:text="${skin.getBrandName()}"></td>
+                <td th:text="${skin.texture}"></td>
+                <td th:text="${skin.quantity}"></td>
+                <td th:text="${skin.price}"></td>
                 <td>
                     <form th:action="@{/editSkin/{id}(id=${skin.id})}" method="get">
                         <button type="submit">Edit</button>
@@ -86,12 +90,14 @@
 
 
     <div>
-        <h1>Lips Products</h1>
+        <h1>Lip Products</h1>
     </div>
     <div class="row col-6">
         <table class="table table-bordered table-striped">
             <thead>
             <th>Name</th>
+            <th>Brand ID</th>
+            <th>Brand Name</th>
             <th>Texture</th>
             <th>Quantity</th>
             <th>Price</th>
@@ -101,6 +107,8 @@
             <tbody>
             <tr th:each="lips : ${lipsList}">
                 <td th:text="${lips.name}"></td>
+                <td th:text="${lips.getBrandCode()}"></td>
+                <td th:text="${lips.getBrandName()}"></td>
                 <td th:text="${lips.texture}"></td>
                 <td th:text="${lips.quantity}"></td>
                 <td th:text="${lips.price}"></td>
@@ -120,8 +128,6 @@
         </table>
     </div>
 
-
-
     <div>
         <h1>Eyebrow Products</h1>
     </div>
@@ -129,6 +135,8 @@
         <table class="table table-bordered table-striped">
             <thead>
             <th>Name</th>
+            <th>Brand ID</th>
+            <th>Brand Name</th>
             <th>Texture</th>
             <th>Quantity</th>
             <th>Price</th>
@@ -138,6 +146,8 @@
             <tbody>
             <tr th:each="eyebrows : ${eyebrowsList}">
                 <td th:text="${eyebrows.name}"></td>
+                <td th:text="${eyebrows.getBrandCode()}"></td>
+                <td th:text="${eyebrows.getBrandName()}"></td>
                 <td th:text="${eyebrows.texture}"></td>
                 <td th:text="${eyebrows.quantity}"></td>
                 <td th:text="${eyebrows.price}"></td>

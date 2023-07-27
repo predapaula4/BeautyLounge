@@ -2,6 +2,7 @@ package com.example.BeautyLounge.mapper;
 
 import com.example.BeautyLounge.dto.SkinFormDto;
 import com.example.BeautyLounge.dto.SkinOverviewDto;
+import com.example.BeautyLounge.model.Brand;
 import com.example.BeautyLounge.model.Skin;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +19,8 @@ public class SkinMapper {
     private SkinOverviewDto mapToSkinDto(Skin skin) {
         return SkinOverviewDto.builder()
                 .id(skin.getId())
+                .brand_id(skin.getBrandCode())
+                .brand_name(skin.getBrandName())
                 .name(skin.getName())
                 .quantity(skin.getQuantity())
                 .texture(skin.getTexture())
@@ -29,6 +32,7 @@ public class SkinMapper {
     {
         Skin skin = Skin.builder()
                 .id(skinFormDto.getId())
+                .brand(Brand.builder().brand_id(skinFormDto.getBrand_id()).build())
                 .name(skinFormDto.getName())
                 .quantity(skinFormDto.getQuantity())
                 .texture(skinFormDto.getTexture())
@@ -41,6 +45,7 @@ public class SkinMapper {
     public Skin mapToSkinEntity(SkinFormDto skinFormDto) {
         return Skin.builder()
                 .name(skinFormDto.getName())
+                .brand(Brand.builder().brand_id(skinFormDto.getBrand_id()).build())
                 .category(skinFormDto.getCategory())
                 .quantity(skinFormDto.getQuantity())
                 .texture(skinFormDto.getTexture())

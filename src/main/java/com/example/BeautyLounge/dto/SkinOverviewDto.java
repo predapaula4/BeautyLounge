@@ -9,6 +9,8 @@ import lombok.*;
 public class SkinOverviewDto {
 
     private int id;
+    private int brand_id;
+    private String brand_name;
     private String name;
     private String category;
     private int quantity;

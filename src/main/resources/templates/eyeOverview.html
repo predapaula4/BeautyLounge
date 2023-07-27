@@ -17,6 +17,8 @@
     <table class="table table-bordered table-striped">
       <thead>
       <th>Name</th>
+      <th>Brand ID</th>
+      <th>Brand Name</th>
       <th>Texture</th>
       <th>Quantity</th>
       <th>Price</th>
@@ -26,6 +28,8 @@
       <tbody>
       <tr th:each="eye : ${eyeList}">
         <td th:text="${eye.name}"/>
+        <td th:text="${eye.brand_id}"></td>
+        <td th:text="${eye.brand_name}"></td>
         <td th:text="${eye.texture}"/>
         <td th:text="${eye.quantity}"/>
         <td th:text="${eye.price}"/>
