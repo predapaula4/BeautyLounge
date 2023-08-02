@@ -62,7 +62,9 @@ create table eyebrows
 
 -- Create the Beauty Lounge table
 create table beauty_lounge (
+    id integer auto_increment,
     name varchar(255),
     hq_address varchar(255),
-    year_of_establishment integer
+    year_of_establishment integer not null,
+    primary key (id)
 );
