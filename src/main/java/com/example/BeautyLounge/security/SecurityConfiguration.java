@@ -1,4 +1,5 @@
 package com.example.BeautyLounge.security;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,16 +10,13 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
 
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
-
     @Bean
     public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
@@ -27,17 +25,16 @@ public class SecurityConfiguration {
                         .requestMatchers(toH2Console()).permitAll()
                         .requestMatchers("/login").permitAll()
                         .requestMatchers("/logout").permitAll()
-                        .requestMatchers("/registration/**").permitAll()
-                        .requestMatchers("/sayHello").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers("/register").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers("/store").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers("/employees").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/register/**").permitAll()
                         .requestMatchers("/index").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers("/employeeOverview").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers("/employeeForm").hasAnyRole("ADMIN")
-                        .requestMatchers("/submitEmployee").hasAnyRole("ADMIN")
-                        .requestMatchers("/deleteEmployee").hasAnyRole("ADMIN")
-                        .requestMatchers("/departmentOverview").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/register").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/shop").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/shop-single").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/cart").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/pharmacyOverview").hasAnyRole( "ADMIN")
+                        .requestMatchers("/pharmacyForm").hasAnyRole("ADMIN")
+                        .requestMatchers("/pillOverview").hasAnyRole("ADMIN")
+                        .requestMatchers("/pillForm").hasAnyRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .headers(headers -> headers.frameOptions().disable())
