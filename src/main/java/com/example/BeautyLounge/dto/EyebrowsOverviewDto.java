@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 public class EyebrowsOverviewDto {
     private int id;
-    private int brand_id;
+    private int brandId;
     private String brand_name;
     private String name;
     private String category;

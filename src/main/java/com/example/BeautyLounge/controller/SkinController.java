@@ -50,7 +50,7 @@ public class SkinController {
     public String getEditSkinForm(@PathVariable("id") Integer id, Model model) {
         Skin skin = skinService.getSkinById(id);
         if (skin != null) {
-            model.addAttribute("skin", skin);
+            model.addAttribute("skinFormDto", skinMapper.mapToSkinFormDto(skin));
             return "editSkinForm";
         }
         return "redirect:/skinOverview";

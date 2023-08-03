@@ -51,7 +51,7 @@ public class EyeController {
     @GetMapping(value = "/eyeForm")
     public String getEyeForm(Model model)
     {
-        model.addAttribute("eye", new Eye());
+        model.addAttribute("eye", new EyeFormDto());
         return "eyeForm";
     }
 
@@ -65,7 +65,7 @@ public class EyeController {
     public String getEditEyeForm(@PathVariable("id") Integer id, Model model) {
         Eye eye = eyeService.getEyeById(id);
         if (eye != null) {
-            model.addAttribute("eye", eye);
+            model.addAttribute("eyeFormDto", eyeMapper.mapToEyeFormDto(eye));
             return "editEyeForm";
         }
         return "redirect:/eyeOverview";

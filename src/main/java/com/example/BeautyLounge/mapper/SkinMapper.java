@@ -52,4 +52,15 @@ public class SkinMapper {
                 .price(skinFormDto.getPrice())
                 .build();
     }
+
+    public SkinFormDto mapToSkinFormDto(Skin skin)
+    {
+        SkinFormDto skinFormDto=new SkinFormDto();
+        skinFormDto.setName(skin.getName());
+        skinFormDto.setPrice(skin.getPrice());
+        skinFormDto.setQuantity(skin.getQuantity());
+        skinFormDto.setTexture(skin.getTexture());
+        skinFormDto.setTexture(skin.getTexture());
+        return skinFormDto;
+    }
 }

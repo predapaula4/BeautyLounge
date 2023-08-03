@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>Edit skin Form</title>
-  <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css">
+  <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css" th:object="${skinFormDto}">
 </head>
 <body>
 <div class="container mt-5">
   <h1>Edit skin products</h1>
 
-  <form th:action="@{/updateSkin/{id}(id=${skin.id})}" method="post">
-    <input type="hidden" th:field="*{skin.id}"/>
+  <form th:action="@{/updateSkin/{id}(id=${id})}" method="post" th:object="${skinFormDto}">
+    <input type="hidden" th:field="*{id}"/>
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" class="form-control" th:field="*{skin.name}"/>
+      <input type="text" class="form-control" th:field="*{name}"/>
     </div>
     <div class="form-group row">
       <label for="brand_id">Brand ID:</label>
       <div>
-        <select class="form-control" th:field="*{skin.brand_id}">
+        <select class="form-control" th:field="*{brandId}">
           <option value="123">123</option>
           <option value="124">124</option>
           <option value="125">125</option>
@@ -29,11 +29,11 @@
     </div>
     <div class="form-group">
       <label for="quantity">Quantity:</label>
-      <input type="number" class="form-control" th:field="*{skin.quantity}"/>
+      <input type="number" class="form-control" th:field="*{quantity}"/>
     </div>
     <div class="form-group">
       <label for="texture">Texture:</label>
-      <select type="text" class="form-control" th:field="*{skin.texture}"/>
+      <select type="text" class="form-control" th:field="*{texture}"/>
         <option value="mousse">Mousse</option>
         <option value="liquid">Liquid</option>
         <option value="creamy">Creamy</option>
@@ -43,7 +43,7 @@
     </div>
     <div class="form-group">
       <label for="price">Price:</label>
-      <input type="number" class="form-control" th:field="*{skin.price}"/>
+      <input type="number" class="form-control" th:field="*{price}"/>
     </div>
     <input type="submit" class="btn btn-primary" value="Save"/>
   </form>

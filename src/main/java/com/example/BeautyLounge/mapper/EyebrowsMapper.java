@@ -18,7 +18,7 @@ public class EyebrowsMapper {
     private EyebrowsOverviewDto mapToEyebrowsDto(Eyebrows eyebrows) {
         return EyebrowsOverviewDto.builder()
                 .id(eyebrows.getId())
-                .brand_id(eyebrows.getBrandCode())
+                .brandId(eyebrows.getBrandCode())
                 .brand_name(eyebrows.getBrandName())
                 .name(eyebrows.getName())
                 .quantity(eyebrows.getQuantity())
@@ -31,7 +31,7 @@ public class EyebrowsMapper {
     {
         Eyebrows eyebrows = Eyebrows.builder()
                 .id(eyebrowsFormDto.getId())
-                .brand(Brand.builder().id(eyebrowsFormDto.getBrand_id()).build())
+                .brand(Brand.builder().id(eyebrowsFormDto.getBrandId()).build())
                 .name(eyebrowsFormDto.getName())
                 .quantity(eyebrowsFormDto.getQuantity())
                 .texture(eyebrowsFormDto.getTexture())
@@ -44,11 +44,20 @@ public class EyebrowsMapper {
     public Eyebrows mapToEyebrowsEntity(EyebrowsFormDto eyebrowsFormDto) {
         return Eyebrows.builder()
                 .name(eyebrowsFormDto.getName())
-                .brand(Brand.builder().id(eyebrowsFormDto.getBrand_id()).build())
+                .brand(Brand.builder().id(eyebrowsFormDto.getBrandId()).build())
                 .category(eyebrowsFormDto.getCategory())
                 .quantity(eyebrowsFormDto.getQuantity())
                 .texture(eyebrowsFormDto.getTexture())
                 .price(eyebrowsFormDto.getPrice())
                 .build();
+    }
+    public EyebrowsFormDto mapToEyebrowsFormDto(Eyebrows eyebrows) {
+        EyebrowsFormDto eyebrowsFormDto = new EyebrowsFormDto();
+        eyebrowsFormDto.setId(eyebrows.getId());
+        eyebrowsFormDto.setName(eyebrows.getName());
+        eyebrowsFormDto.setQuantity(eyebrows.getQuantity());
+        eyebrowsFormDto.setTexture(eyebrows.getTexture());
+        eyebrowsFormDto.setPrice(eyebrows.getPrice());
+        return eyebrowsFormDto;
     }
 }

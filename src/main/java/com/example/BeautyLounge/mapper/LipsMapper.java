@@ -31,7 +31,7 @@ public class LipsMapper {
     {
         Lips lips=Lips.builder()
                 .id(lipsFormDto.getId())
-                .brand(Brand.builder().id(lipsFormDto.getBrand_id()).build())
+                .brand(Brand.builder().id(lipsFormDto.getBrandId()).build())
                 .name(lipsFormDto.getName())
                 .quantity(lipsFormDto.getQuantity())
                 .texture(lipsFormDto.getTexture())
@@ -44,11 +44,21 @@ public class LipsMapper {
     public Lips mapToLipsEntity(LipsFormDto lipsFormDto) {
         return Lips.builder()
                 .name(lipsFormDto.getName())
-                .brand(Brand.builder().id(lipsFormDto.getBrand_id()).build())
+                .brand(Brand.builder().id(lipsFormDto.getBrandId()).build())
                 .category(lipsFormDto.getCategory())
                 .quantity(lipsFormDto.getQuantity())
                 .texture(lipsFormDto.getTexture())
                 .price(lipsFormDto.getPrice())
                 .build();
+    }
+    public LipsFormDto mapToLipsFormDto(Lips lips)
+    {
+        LipsFormDto lipsFormDto=new LipsFormDto();
+        lipsFormDto.setId(lips.getId());
+        lipsFormDto.setQuantity(lips.getQuantity());
+        lipsFormDto.setName(lips.getName());
+        lipsFormDto.setPrice(lips.getPrice());
+        lipsFormDto.setTexture(lips.getTexture());
+        return lipsFormDto;
     }
 }

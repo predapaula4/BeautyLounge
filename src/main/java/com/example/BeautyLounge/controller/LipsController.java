@@ -51,7 +51,7 @@ public class LipsController {
     @GetMapping(value = "/lipsForm")
     public String getLipsForm(Model model)
     {
-        model.addAttribute("lips", new Lips());
+        model.addAttribute("lips", new LipsFormDto());
         return "lipsForm";
     }
 
@@ -65,7 +65,7 @@ public class LipsController {
     public String getEditLipsForm(@PathVariable("id") Integer id, Model model) {
        Lips lips = lipsService.getLipsById(id);
         if (lips != null) {
-            model.addAttribute("lips", lips);
+            model.addAttribute("lipsFormDto", lipsMapper.mapToLipsFormDto(lips));
             return "editLipsForm";
         }
         return "redirect:/lipsOverview";

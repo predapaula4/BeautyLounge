@@ -16,4 +16,6 @@ public class SkinFormDto {
     private int quantity;
     private String texture;
     private int price;
+
+
 }

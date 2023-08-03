@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 public class EyeFormDto {
     private int id;
-    private int brand_id;
+    private int brandId;
     private String name;
     private String category;
     private int quantity;
