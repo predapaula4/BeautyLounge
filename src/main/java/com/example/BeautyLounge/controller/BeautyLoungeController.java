@@ -6,6 +6,8 @@ import com.example.BeautyLounge.repository.LipsRepository;
 import com.example.BeautyLounge.repository.EyeRepository;
 import com.example.BeautyLounge.repository.SkinRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,7 +50,10 @@ public class BeautyLoungeController {
         return "beautyLoungeProducts";
     }
     @GetMapping(value = "/beautyLoungeProductsForm")
-    public String getbeautyLoungeProductsForm(Model model) {
+    public String getbeautyLoungeProductsForm(Model model, Authentication authentication) {
+
+        authentication.getPrincipal();
+        addUserToModel(model, authentication);
         model.addAttribute("beautyLoungeProducts", new BeautyLounge());
         return "beautyLoungeProductsForm";
     }
@@ -82,5 +87,14 @@ public class BeautyLoungeController {
     @GetMapping(value="/homeForProducts")
     public String goHome(){
         return "redirect:/beautyLoungeProductsForm";
+    }
+
+    protected void addUserToModel(Model model, Authentication authentication) {
+        var roles = authentication.getAuthorities().stream()
+                .map(String::valueOf)
+                .toList();
+
+        model.addAttribute("userName", authentication.getName());
+        model.addAttribute("isAdmin", roles.contains("ROLE_ADMIN"));
     }
 }
